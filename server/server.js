@@ -1,12 +1,11 @@
 /**
  * CyberShield — Express Server Entry Point
- * Sets up middleware, routes, and serves the frontend SPA
+ * Backend API Server
  */
 
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 const connectDB = require('./config/db');
 
 // Import routes
@@ -21,8 +20,10 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 // ============================================
 
-// Enable CORS for development
-app.use(cors());
+// Enable CORS for all domains
+app.use(cors({
+  origin: "*"
+}));
 
 // Parse JSON request bodies
 app.use(express.json({ limit: '10kb' }));
@@ -30,21 +31,16 @@ app.use(express.json({ limit: '10kb' }));
 // Parse URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static frontend files (if built)
-app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
-
 // ============================================
 // API Routes
 // ============================================
 
-app.use('/api/auth', authRoutes);
-app.use('/api/dashboard', dashboardRoutes);
-app.use('/api/ai', aiRoutes);
+// Root Route
+app.get('/', (req, res) => {
+  res.send('Backend running successfully 🚀');
+});
 
-// ============================================
 // Health Check
-// ============================================
-
 app.get('/api/health', (req, res) => {
   res.json({
     success: true,
@@ -53,20 +49,19 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+app.use('/api/auth', authRoutes);
+app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/ai', aiRoutes);
+
 // ============================================
-// SPA Fallback — serve index.html for all non-API routes
+// 404 Handler for Unknown Routes
 // ============================================
 
-app.get('*', (req, res) => {
-  // Only serve index.html for non-API routes
-  if (!req.path.startsWith('/api')) {
-    res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
-  } else {
-    res.status(404).json({
-      success: false,
-      message: 'API endpoint not found',
-    });
-  }
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    message: 'API endpoint not found',
+  });
 });
 
 // ============================================
@@ -86,14 +81,18 @@ app.use((err, req, res, next) => {
 // ============================================
 
 const startServer = async () => {
-  // Connect to MongoDB
-  await connectDB();
+  try {
+    // Connect to MongoDB
+    await connectDB();
 
-  app.listen(PORT, () => {
-    console.log(`\n🛡️  CyberShield Server running on http://localhost:${PORT}`);
-    console.log(`📁  Serving frontend from: ${path.join(__dirname, '..', 'client')}`);
-    console.log(`🔧  Environment: ${process.env.NODE_ENV || 'development'}\n`);
-  });
+    app.listen(PORT, () => {
+      console.log(`\n🛡️  CyberShield Server running on port ${PORT}`);
+      console.log(`🔧  Environment: ${process.env.NODE_ENV || 'development'}\n`);
+    });
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
 };
 
 startServer();
