@@ -1,13 +1,22 @@
 /**
  * AI Assistant Routes
- * Handles communication with LLM (OpenAI API or fallback)
+ * Handles communication with Google Gemini API
  */
 
 const express = require('express');
 const router = express.Router();
-// const { Configuration, OpenAIApi } = require('openai'); // Example for OpenAI
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-// Mock/fallback response logic if no API key is provided
+const SYSTEM_INSTRUCTION = "You are CyberShield AI, a helpful and ethical cybersecurity assistant. Your goal is to help students learn about cybersecurity concepts, Kali Linux tools, and best practices. Always prioritize ethical guidelines and educational content. Do not provide information on how to perform illegal activities. Keep your responses concise and well-formatted using markdown.";
+
+// Helper: create a fresh model instance using the current env key
+function getModel() {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) return null;
+  const genAI = new GoogleGenerativeAI(apiKey);
+  return genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" });
+}
+
 router.post('/chat', async (req, res) => {
   try {
     const { prompt } = req.body;
@@ -16,30 +25,49 @@ router.post('/chat', async (req, res) => {
       return res.status(400).json({ error: 'Prompt is required' });
     }
 
-    // In a real application, you would call OpenAI/Gemini here:
-    // const response = await openai.createChatCompletion({ ... });
-    
-    // For now, we will simulate the AI logic since we might not have a valid key
-    setTimeout(() => {
-      let aiResponse = "SYSTEM: LLM API Key not detected. Operating in simulated mode.\\n\\n";
-      const p = prompt.toLowerCase();
-      
-      if (p.includes('nmap')) {
-        aiResponse += "To perform a stealth scan with Nmap, use the `-sS` flag (TCP SYN scan). Example:\\n`nmap -sS 192.168.1.1`\\nThis requires root privileges because it crafts raw TCP packets.";
-      } else if (p.includes('sql')) {
-        aiResponse += "SQL Injection (SQLi) is a vulnerability where an attacker can interfere with the queries that an application makes to its database.\\n\\nExample payload: `' OR 1=1--`";
-      } else if (p.includes('ping') || p.includes('network')) {
-        aiResponse += "Networking commands like `ping` help you verify connectivity. `ping 8.8.8.8` sends ICMP echo requests to Google's public DNS.";
-      } else {
-        aiResponse += "I'm equipped to explain tools, concepts, and provide syntax examples. Please ask about specific tools or networking concepts!";
-      }
+    const model = getModel();
+    if (!model) {
+      return res.json({
+        success: true,
+        response: "SYSTEM: GEMINI_API_KEY not found in .env. Please add your API key from Google AI Studio to enable the Neural Core.\n\nIn the meantime, I am limited to basic simulated responses. Please configure the environment to proceed."
+      });
+    }
 
-      res.json({ success: true, response: aiResponse });
-    }, 1000);
+    const fullPrompt = `${SYSTEM_INSTRUCTION}\n\nUser Question: ${prompt}`;
+
+    // Retry logic for rate limiting (up to 3 attempts)
+    for (let attempt = 0; attempt < 3; attempt++) {
+      try {
+        const result = await model.generateContent(fullPrompt);
+        const response = await result.response;
+        const text = response.text();
+        return res.json({ success: true, response: text });
+      } catch (err) {
+        if (err.status === 429 && attempt < 2) {
+          // Rate limited — wait and retry
+          console.log(`Rate limited, retrying in ${(attempt + 1) * 5}s... (attempt ${attempt + 1}/3)`);
+          await new Promise(resolve => setTimeout(resolve, (attempt + 1) * 5000));
+          continue;
+        }
+        throw err;
+      }
+    }
 
   } catch (error) {
-    console.error('AI API Error:', error);
-    res.status(500).json({ success: false, error: 'Failed to process AI request' });
+    console.error('AI API Error:', error.message || error);
+
+    let userMessage = 'Failed to process AI request.';
+    if (error.status === 429) {
+      userMessage = 'Rate limit reached. The free tier has request limits — please wait a minute and try again.';
+    } else if (error.status === 403) {
+      userMessage = 'API key is invalid or does not have permission. Please check your GEMINI_API_KEY in .env.';
+    } else if (error.status === 404) {
+      userMessage = 'AI model not found. Please check server configuration.';
+    } else if (error.message?.includes('API_KEY_INVALID')) {
+      userMessage = 'API key is invalid. Please generate a new key from Google AI Studio.';
+    }
+
+    res.status(500).json({ success: false, error: userMessage });
   }
 });
 

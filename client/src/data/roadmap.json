@@ -1,0 +1,314 @@
+[
+  {
+    "id": "phase0",
+    "phase": "Phase 0: Foundation — Computer & Networking Basics",
+    "duration": "2-3 weeks",
+    "description": {
+      "en": "Before hacking, you must understand how computers and networks communicate. This is the foundation.",
+      "hi": "Hacking start karne se pehle, computers aur networks kaise kaam karte hain, ye samajhna zaroori hai. Ye base hai."
+    },
+    "tags": ["Networking", "OSI Model", "TCP/IP", "Linux Basics"],
+    "tasks": [
+      { "id": "0a", "title": "Learn the OSI Model and TCP/IP stack" },
+      { "id": "0b", "title": "Understand IP addressing, Subnetting, and DNS" },
+      { "id": "0c", "title": "Learn basic Linux commands (ls, cd, grep, cat)" },
+      { "id": "0d", "title": "Understand HTTP/HTTPS protocols and status codes" }
+    ],
+    "videos": [
+      {
+        "title": "Computer Networks in One Shot",
+        "youtube_url": "https://www.youtube.com/embed/gfwMYLQaZP0",
+        "video_id": "gfwMYLQaZP0",
+        "channel_name": "Apna College"
+      },
+      {
+        "title": "Linux Tutorial For Beginners",
+        "youtube_url": "https://www.youtube.com/embed/fqF9M92jzUo",
+        "video_id": "fqF9M92jzUo",
+        "channel_name": "CodeWithHarry"
+      }
+    ],
+    "color": "from-gray-500 to-gray-700"
+  },
+  {
+    "id": "phase1",
+    "phase": "Phase 1: Kali Linux Environment Setup",
+    "duration": "1-2 weeks",
+    "description": {
+      "en": "Setting up your hacking lab safely using Virtual Machines.",
+      "hi": "Virtual Machines ka use karke apna safe hacking lab setup karna."
+    },
+    "tags": ["VirtualBox", "VMware", "Kali Linux", "Lab Setup"],
+    "tasks": [
+      { "id": "1a", "title": "Install VirtualBox or VMware" },
+      { "id": "1b", "title": "Download and verify Kali Linux ISO/VM Image" },
+      { "id": "1c", "title": "Install Kali Linux and configure Network Settings (NAT/Bridged)" },
+      { "id": "1d", "title": "Update & Upgrade Kali (apt update && apt upgrade)" },
+      { "id": "1e", "title": "Install a vulnerable target (e.g., Metasploitable 2)" }
+    ],
+    "videos": [
+      {
+        "title": "Ethical Hacking Full Course in Hindi",
+        "youtube_url": "https://www.youtube.com/embed/cKEf8H9cQGM",
+        "video_id": "cKEf8H9cQGM",
+        "channel_name": "WsCube Tech"
+      },
+      {
+        "title": "Kali Linux Installation Guide",
+        "youtube_url": "https://www.youtube.com/embed/DUJq6iYOWms",
+        "video_id": "DUJq6iYOWms",
+        "channel_name": "Geeky Shows"
+      }
+    ],
+    "color": "from-blue-500 to-blue-700"
+  },
+  {
+    "id": "phase2",
+    "phase": "Phase 2: Information Gathering & Recon",
+    "duration": "2-3 weeks",
+    "description": {
+      "en": "The most important phase. Finding out everything about the target before attacking.",
+      "hi": "Sabse important phase. Attack se pehle target ke baare mein sab kuch pata lagana."
+    },
+    "tags": ["OSINT", "Nmap", "Whois", "Recon-ng"],
+    "tasks": [
+      { "id": "2a", "title": "Passive Recon: WHOIS, DNS mapping, Google Dorks" },
+      { "id": "2b", "title": "Active Recon: Ping sweeps and port scanning" },
+      { "id": "2c", "title": "Mastering Nmap (Flags: -sS, -sV, -O, -p-)" },
+      { "id": "2d", "title": "Web Recon: directory brute-forcing (Gobuster, Dirb)" }
+    ],
+    "videos": [
+      {
+        "title": "Nmap Tutorial in Hindi",
+        "youtube_url": "https://www.youtube.com/embed/6DGP5hbvlMQ",
+        "video_id": "6DGP5hbvlMQ",
+        "channel_name": "Technical Suneja"
+      },
+      {
+        "title": "Information Gathering & OSINT",
+        "youtube_url": "https://www.youtube.com/embed/cKEf8H9cQGM",
+        "video_id": "cKEf8H9cQGM",
+        "channel_name": "WsCube Tech"
+      }
+    ],
+    "color": "from-green-500 to-green-700"
+  },
+  {
+    "id": "phase3",
+    "phase": "Phase 3: Vulnerability Analysis",
+    "duration": "2-3 weeks",
+    "description": {
+      "en": "Identifying weak points in the systems and services discovered during recon.",
+      "hi": "Recon mein mile systems aur services ke weak points ko identify karna."
+    },
+    "tags": ["Nessus", "Nikto", "SearchSploit", "CVE"],
+    "tasks": [
+      { "id": "3a", "title": "Understand CVEs and Exploit Databases" },
+      { "id": "3b", "title": "Use Nmap scripting engine (NSE) for vuln scanning" },
+      { "id": "3c", "title": "Learn Nikto for web server vulnerability scanning" },
+      { "id": "3d", "title": "Set up and run Nessus/OpenVAS" }
+    ],
+    "videos": [
+      {
+        "title": "Cyber Security Basics",
+        "youtube_url": "https://www.youtube.com/embed/DNFGuhjCrMM",
+        "video_id": "DNFGuhjCrMM",
+        "channel_name": "Hitesh Choudhary"
+      },
+      {
+        "title": "Vulnerability Scanning Tools",
+        "youtube_url": "https://www.youtube.com/embed/cKEf8H9cQGM",
+        "video_id": "cKEf8H9cQGM",
+        "channel_name": "WsCube Tech"
+      }
+    ],
+    "color": "from-yellow-500 to-yellow-700"
+  },
+  {
+    "id": "phase4",
+    "phase": "Phase 4: Exploitation — Getting Access",
+    "duration": "3-4 weeks",
+    "description": {
+      "en": "Weaponizing vulnerabilities to gain unauthorized access to the target.",
+      "hi": "Vulnerabilities ka use karke target system mein unauthorized entry lena."
+    },
+    "tags": ["Metasploit", "Reverse Shells", "SQLi", "Burp Suite"],
+    "tasks": [
+      { "id": "4a", "title": "Master Metasploit Framework (msfconsole)" },
+      { "id": "4b", "title": "Understand Reverse Shells vs Bind Shells (Netcat)" },
+      { "id": "4c", "title": "Web Exploitation: SQL Injection and XSS basics" },
+      { "id": "4d", "title": "Learn Burp Suite for manipulating web requests" },
+      { "id": "4e", "title": "Password Cracking with Hydra & John The Ripper" }
+    ],
+    "videos": [
+      {
+        "title": "Metasploit Complete Guide",
+        "youtube_url": "https://www.youtube.com/embed/cKEf8H9cQGM",
+        "video_id": "cKEf8H9cQGM",
+        "channel_name": "WsCube Tech"
+      },
+      {
+        "title": "SQL Injection Explained",
+        "youtube_url": "https://www.youtube.com/embed/DNFGuhjCrMM",
+        "video_id": "DNFGuhjCrMM",
+        "channel_name": "Hitesh Choudhary"
+      }
+    ],
+    "color": "from-orange-500 to-orange-700"
+  },
+  {
+    "id": "phase5",
+    "phase": "Phase 5: Post Exploitation & Privilege Escalation",
+    "duration": "2-3 weeks",
+    "description": {
+      "en": "What to do after gaining access. Escalating to root/admin and maintaining access.",
+      "hi": "Access milne ke baad kya karein. Root/Admin banna aur access banaye rakhna."
+    },
+    "tags": ["PrivEsc", "Meterpreter", "Linux", "Windows"],
+    "tasks": [
+      { "id": "5a", "title": "Use Meterpreter for post-exploitation" },
+      { "id": "5b", "title": "Linux Privilege Escalation (SUID, Sudo rights, Cron jobs)" },
+      { "id": "5c", "title": "Windows Privilege Escalation basics" },
+      { "id": "5d", "title": "Data exfiltration and pivoting" }
+    ],
+    "videos": [
+      {
+        "title": "Linux Commands Deep Dive",
+        "youtube_url": "https://www.youtube.com/embed/fqF9M92jzUo",
+        "video_id": "fqF9M92jzUo",
+        "channel_name": "CodeWithHarry"
+      },
+      {
+        "title": "Post Exploitation Techniques",
+        "youtube_url": "https://www.youtube.com/embed/cKEf8H9cQGM",
+        "video_id": "cKEf8H9cQGM",
+        "channel_name": "WsCube Tech"
+      }
+    ],
+    "color": "from-red-500 to-red-700"
+  },
+  {
+    "id": "phase6",
+    "phase": "Phase 6: Wireless & Network Security",
+    "duration": "2 weeks",
+    "description": {
+      "en": "Attacking WiFi networks and intercepting network traffic.",
+      "hi": "WiFi networks par attack karna aur network traffic ko intercept karna."
+    },
+    "tags": ["Aircrack-ng", "Wireshark", "MITM"],
+    "tasks": [
+      { "id": "6a", "title": "Learn Wireshark to analyze packet captures (PCAP)" },
+      { "id": "6b", "title": "Understand WEP, WPA, WPA2 vulnerabilities" },
+      { "id": "6c", "title": "Use Aircrack-ng suite for capturing handshakes" },
+      { "id": "6d", "title": "ARP Spoofing and Man-in-the-Middle (MITM) attacks" }
+    ],
+    "videos": [
+      {
+        "title": "Computer Networks Deep Dive",
+        "youtube_url": "https://www.youtube.com/embed/gfwMYLQaZP0",
+        "video_id": "gfwMYLQaZP0",
+        "channel_name": "Apna College"
+      },
+      {
+        "title": "Networking Essentials",
+        "youtube_url": "https://www.youtube.com/embed/JFF2vJaN0Cw",
+        "video_id": "JFF2vJaN0Cw",
+        "channel_name": "CodeWithHarry"
+      }
+    ],
+    "color": "from-pink-500 to-pink-700"
+  },
+  {
+    "id": "phase7",
+    "phase": "Phase 7: Cryptography & Steganography",
+    "duration": "1-2 weeks",
+    "description": {
+      "en": "Hiding data and breaking encryption mechanisms.",
+      "hi": "Data ko chupana aur encryption mechanisms ko todna."
+    },
+    "tags": ["Hashcat", "Steghide", "Encryption"],
+    "tasks": [
+      { "id": "7a", "title": "Understand symmetric vs asymmetric encryption" },
+      { "id": "7b", "title": "Crack hashes with Hashcat" },
+      { "id": "7c", "title": "Use Steghide to hide text inside images" },
+      { "id": "7d", "title": "Understand encoding (Base64) vs encryption" }
+    ],
+    "videos": [
+      {
+        "title": "Cyber Security and Hashing",
+        "youtube_url": "https://www.youtube.com/embed/DNFGuhjCrMM",
+        "video_id": "DNFGuhjCrMM",
+        "channel_name": "Hitesh Choudhary"
+      },
+      {
+        "title": "Tech & Security Concepts",
+        "youtube_url": "https://www.youtube.com/embed/cKEf8H9cQGM",
+        "video_id": "cKEf8H9cQGM",
+        "channel_name": "WsCube Tech"
+      }
+    ],
+    "color": "from-purple-500 to-purple-700"
+  },
+  {
+    "id": "phase8",
+    "phase": "Phase 8: Report Writing & Professional Skills",
+    "duration": "1-2 weeks",
+    "description": {
+      "en": "Documenting your findings properly. The most critical skill for a professional.",
+      "hi": "Apne attacks ko properly document karna. Ek professional ke liye sabse zaroori skill."
+    },
+    "tags": ["Documentation", "CVSS", "Reporting"],
+    "tasks": [
+      { "id": "8a", "title": "Learn CVSS scoring system" },
+      { "id": "8b", "title": "Understand the structure of a Penetration Test Report" },
+      { "id": "8c", "title": "Write a mock report for Metasploitable 2" },
+      { "id": "8d", "title": "Learn Markdown for note-taking (Obsidian/CherryTree)" }
+    ],
+    "videos": [
+      {
+        "title": "Documentation Basics",
+        "youtube_url": "https://www.youtube.com/embed/fqF9M92jzUo",
+        "video_id": "fqF9M92jzUo",
+        "channel_name": "CodeWithHarry"
+      },
+      {
+        "title": "Cyber Security Career & Path",
+        "youtube_url": "https://www.youtube.com/embed/DNFGuhjCrMM",
+        "video_id": "DNFGuhjCrMM",
+        "channel_name": "Hitesh Choudhary"
+      }
+    ],
+    "color": "from-teal-500 to-teal-700"
+  },
+  {
+    "id": "phase9",
+    "phase": "Phase 9: Real-World Practice & CTFs",
+    "duration": "Ongoing",
+    "description": {
+      "en": "Applying skills in legal, safe environments to build experience.",
+      "hi": "Legal aur safe environments mein skills apply karke experience gain karna."
+    },
+    "tags": ["HackTheBox", "TryHackMe", "CTF"],
+    "tasks": [
+      { "id": "9a", "title": "Create a TryHackMe account and complete beginner paths" },
+      { "id": "9b", "title": "Create a HackTheBox account and do 'Starting Point'" },
+      { "id": "9c", "title": "Participate in a beginner Capture The Flag (CTF) event" },
+      { "id": "9d", "title": "Build a methodology and stick to it" }
+    ],
+    "videos": [
+      {
+        "title": "Practical Hacking Concepts",
+        "youtube_url": "https://www.youtube.com/embed/cKEf8H9cQGM",
+        "video_id": "cKEf8H9cQGM",
+        "channel_name": "WsCube Tech"
+      },
+      {
+        "title": "Linux Advanced Usage",
+        "youtube_url": "https://www.youtube.com/embed/DUJq6iYOWms",
+        "video_id": "DUJq6iYOWms",
+        "channel_name": "Geeky Shows"
+      }
+    ],
+    "color": "from-indigo-500 to-indigo-700"
+  }
+]

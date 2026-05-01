@@ -1,0 +1,228 @@
+{
+  "categories": [
+    {
+      "id": "kali-linux-basics",
+      "name": "Kali Linux Basics",
+      "icon": "🐉",
+      "description": "Get started with Kali Linux — installation, setup, and essential commands.",
+      "videos": [
+        {
+          "id": "v1",
+          "title": "Kali Linux Tutorial for Beginners",
+          "youtube_url": "https://www.youtube.com/embed/ty8bEFuVM-I",
+          "video_id": "ty8bEFuVM-I",
+          "thumbnail": "https://img.youtube.com/vi/ty8bEFuVM-I/hqdefault.jpg",
+          "channel_name": "Simplilearn",
+          "level": "Beginner",
+          "duration": "42 min"
+        },
+        {
+          "id": "v2",
+          "title": "Ethical Hacking Full Course for Beginners",
+          "youtube_url": "https://www.youtube.com/embed/3Kq1MIfTWCE",
+          "video_id": "3Kq1MIfTWCE",
+          "thumbnail": "https://img.youtube.com/vi/3Kq1MIfTWCE/hqdefault.jpg",
+          "channel_name": "freeCodeCamp.org",
+          "level": "Beginner",
+          "duration": "14 hrs"
+        }
+      ]
+    },
+    {
+      "id": "nmap-scanning",
+      "name": "Nmap Scanning",
+      "icon": "🔍",
+      "description": "Learn Nmap fundamentals — port scanning, host discovery, and service detection.",
+      "videos": [
+        {
+          "id": "v3",
+          "title": "Nmap Tutorial to Find Network Vulnerabilities",
+          "youtube_url": "https://www.youtube.com/embed/4t4kBkMsDbQ",
+          "video_id": "4t4kBkMsDbQ",
+          "thumbnail": "https://img.youtube.com/vi/4t4kBkMsDbQ/hqdefault.jpg",
+          "channel_name": "NetworkChuck",
+          "level": "Beginner",
+          "duration": "25 min"
+        },
+        {
+          "id": "v4",
+          "title": "Nmap Tutorial For Beginners",
+          "youtube_url": "https://www.youtube.com/embed/NtPcoDtetvk",
+          "video_id": "NtPcoDtetvk",
+          "thumbnail": "https://img.youtube.com/vi/NtPcoDtetvk/hqdefault.jpg",
+          "channel_name": "Simplilearn",
+          "level": "Beginner",
+          "duration": "18 min"
+        }
+      ]
+    },
+    {
+      "id": "nmap-networking",
+      "name": "Nmap + Networking",
+      "icon": "🌐",
+      "description": "Deep-dive into Nmap with network analysis, Wireshark, and packet-level understanding.",
+      "videos": [
+        {
+          "id": "v5",
+          "title": "Cyber Security Course Training",
+          "youtube_url": "https://www.youtube.com/embed/hXSFdwIOfnE",
+          "video_id": "hXSFdwIOfnE",
+          "thumbnail": "https://img.youtube.com/vi/hXSFdwIOfnE/hqdefault.jpg",
+          "channel_name": "Simplilearn",
+          "level": "Intermediate",
+          "duration": "10 hrs"
+        },
+        {
+          "id": "v6",
+          "title": "Ethical Hacking Course 2026",
+          "youtube_url": "https://www.youtube.com/embed/7rG9tWvPG2E",
+          "video_id": "7rG9tWvPG2E",
+          "thumbnail": "https://img.youtube.com/vi/7rG9tWvPG2E/hqdefault.jpg",
+          "channel_name": "Simplilearn",
+          "level": "Intermediate",
+          "duration": "11 hrs"
+        }
+      ]
+    },
+    {
+      "id": "metasploit",
+      "name": "Metasploit",
+      "icon": "💀",
+      "description": "Master the Metasploit Framework — exploits, payloads, and post-exploitation.",
+      "videos": [
+        {
+          "id": "v7",
+          "title": "Metasploit For Beginners",
+          "youtube_url": "https://www.youtube.com/embed/5m4KF9XbkzU",
+          "video_id": "5m4KF9XbkzU",
+          "thumbnail": "https://img.youtube.com/vi/5m4KF9XbkzU/hqdefault.jpg",
+          "channel_name": "Simplilearn",
+          "level": "Beginner",
+          "duration": "20 min"
+        },
+        {
+          "id": "v8",
+          "title": "Ethical Hacking Full Course (10 Hours)",
+          "youtube_url": "https://www.youtube.com/embed/dz7Ntp7KQGA",
+          "video_id": "dz7Ntp7KQGA",
+          "thumbnail": "https://img.youtube.com/vi/dz7Ntp7KQGA/hqdefault.jpg",
+          "channel_name": "edureka!",
+          "level": "Intermediate",
+          "duration": "10 hrs"
+        }
+      ]
+    },
+    {
+      "id": "burp-suite",
+      "name": "Burp Suite",
+      "icon": "🕷️",
+      "description": "Web app security testing with Burp Suite — intercepting, scanning, and exploiting.",
+      "videos": [
+        {
+          "id": "v9",
+          "title": "Web App Pentesting with Burp Suite",
+          "youtube_url": "https://www.youtube.com/embed/T4X1hZ1J_6U",
+          "video_id": "T4X1hZ1J_6U",
+          "thumbnail": "https://img.youtube.com/vi/T4X1hZ1J_6U/hqdefault.jpg",
+          "channel_name": "PortSwigger",
+          "level": "Beginner",
+          "duration": "35 min"
+        },
+        {
+          "id": "v10",
+          "title": "Burp Suite Guide",
+          "youtube_url": "https://www.youtube.com/embed/W3_Q1H2J5K8",
+          "video_id": "W3_Q1H2J5K8",
+          "thumbnail": "https://img.youtube.com/vi/W3_Q1H2J5K8/hqdefault.jpg",
+          "channel_name": "CyberMentor",
+          "level": "Intermediate",
+          "duration": "1 hr"
+        }
+      ]
+    },
+    {
+      "id": "wifi-attacks",
+      "name": "WiFi + Attacks",
+      "icon": "📡",
+      "description": "Wireless security — WPA2 cracking, deauth attacks, and WiFi penetration testing.",
+      "videos": [
+        {
+          "id": "v11",
+          "title": "Ethical Hacking Full Course 2026",
+          "youtube_url": "https://www.youtube.com/embed/TfRNS7aRVqI",
+          "video_id": "TfRNS7aRVqI",
+          "thumbnail": "https://img.youtube.com/vi/TfRNS7aRVqI/hqdefault.jpg",
+          "channel_name": "Simplilearn",
+          "level": "Intermediate",
+          "duration": "11 hrs"
+        },
+        {
+          "id": "v12",
+          "title": "Cyber Security Full Course 2026",
+          "youtube_url": "https://www.youtube.com/embed/xtnMQKpLgcc",
+          "video_id": "xtnMQKpLgcc",
+          "thumbnail": "https://img.youtube.com/vi/xtnMQKpLgcc/hqdefault.jpg",
+          "channel_name": "Simplilearn",
+          "level": "Advanced",
+          "duration": "10 hrs"
+        }
+      ]
+    },
+    {
+      "id": "sql-injection",
+      "name": "SQL Injection",
+      "icon": "💉",
+      "description": "Understand and exploit SQL injection vulnerabilities in web applications.",
+      "videos": [
+        {
+          "id": "v13",
+          "title": "Running an SQL Injection Attack",
+          "youtube_url": "https://www.youtube.com/embed/_jKylhJtPmI",
+          "video_id": "_jKylhJtPmI",
+          "thumbnail": "https://img.youtube.com/vi/_jKylhJtPmI/hqdefault.jpg",
+          "channel_name": "Computerphile",
+          "level": "Beginner",
+          "duration": "17 min"
+        },
+        {
+          "id": "v14",
+          "title": "Interactive SQL Injection",
+          "youtube_url": "https://www.youtube.com/embed/ciNHn38EyRc",
+          "video_id": "ciNHn38EyRc",
+          "thumbnail": "https://img.youtube.com/vi/ciNHn38EyRc/hqdefault.jpg",
+          "channel_name": "Computerphile",
+          "level": "Intermediate",
+          "duration": "12 min"
+        }
+      ]
+    },
+    {
+      "id": "web-xss",
+      "name": "Web / XSS",
+      "icon": "🌍",
+      "description": "Cross-Site Scripting (XSS) attacks — reflected, stored, and DOM-based XSS.",
+      "videos": [
+        {
+          "id": "v15",
+          "title": "XSS Explained",
+          "youtube_url": "https://www.youtube.com/embed/R2_VzV10Lwc",
+          "video_id": "R2_VzV10Lwc",
+          "thumbnail": "https://img.youtube.com/vi/R2_VzV10Lwc/hqdefault.jpg",
+          "channel_name": "PwnFunction",
+          "level": "Beginner",
+          "duration": "10 min"
+        },
+        {
+          "id": "v16",
+          "title": "DO NOT USE alert(1) for XSS",
+          "youtube_url": "https://www.youtube.com/embed/y60wB-hJ2i8",
+          "video_id": "y60wB-hJ2i8",
+          "thumbnail": "https://img.youtube.com/vi/y60wB-hJ2i8/hqdefault.jpg",
+          "channel_name": "LiveOverflow",
+          "level": "Advanced",
+          "duration": "8 min"
+        }
+      ]
+    }
+  ]
+}
